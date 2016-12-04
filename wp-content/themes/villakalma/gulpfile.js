@@ -1,5 +1,6 @@
 // ## Globals
 var argv         = require('minimist')(process.argv.slice(2));
+var gutil        = require('gulp-util');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync  = require('browser-sync').create();
 var changed      = require('gulp-changed');
@@ -8,7 +9,7 @@ var flatten      = require('gulp-flatten');
 var gulp         = require('gulp');
 var gulpif       = require('gulp-if');
 var imagemin     = require('gulp-imagemin');
-var jshint       = require('gulp-jshint');
+// var jshint       = require('gulp-jshint');
 var lazypipe     = require('lazypipe');
 // var less         = require('gulp-less');
 var merge        = require('merge-stream');
@@ -19,6 +20,8 @@ var runSequence  = require('run-sequence');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
+var prompt       = require('gulp-prompt');
+var ftp          = require( 'vinyl-ftp' );
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./assets/manifest.json');
@@ -59,7 +62,7 @@ var enabled = {
   // Fail styles task on error when `--production`
   failStyleTask: argv.production,
   // Fail due to JSHint warnings only when `--production`
-  failJSHint: argv.production,
+  // failJSHint: argv.production,
   // Strip debug statments from javascript when `--production`
   stripJSDebug: argv.production
 };
@@ -186,7 +189,7 @@ gulp.task('styles', ['wiredep'], function() {
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
-gulp.task('scripts', ['jshint'], function() {
+gulp.task('scripts', function() {
   var merged = merge();
   manifest.forEachDependency('js', function(dep) {
     merged.add(
@@ -223,14 +226,14 @@ gulp.task('images', function() {
 
 // ### JSHint
 // `gulp jshint` - Lints configuration JSON and project JS.
-gulp.task('jshint', function() {
-  return gulp.src([
-    'bower.json', 'gulpfile.js'
-  ].concat(project.js))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
-});
+// gulp.task('jshint', function() {
+//   return gulp.src([
+//     'bower.json', 'gulpfile.js'
+//   ].concat(project.js))
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('jshint-stylish'))
+//     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
+// });
 
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.
@@ -252,7 +255,7 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch([path.source + 'styles/**/*'], ['styles']);
-  gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
+  gulp.watch([path.source + 'scripts/**/*'], ['scripts']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
   gulp.watch(['bower.json', 'assets/manifest.json'], ['build']);
@@ -286,3 +289,34 @@ gulp.task('wiredep', function() {
 gulp.task('default', ['clean'], function() {
   gulp.start('build');
 });
+
+//deploy
+
+gulp.task( 'deploy', function () {
+
+    var conn = ftp.create( {
+        host:     'ftp.villakalma.gr',
+        user:     'kalliopi055284',
+        password: 'bhdnfnkcZdvbZwTG',
+        parallel: 10,
+        log:      gutil.log
+    } );
+
+    var globs = [path.dist, 'lang', 'lib', 'templates', './*.php', './style.css' ];
+
+    // using base = '.' will transfer everything to /public_html correctly
+    // turn off buffering in gulp.src for best performance
+
+    return gulp.src( globs, { base: '.', buffer: false } )
+        .pipe( conn.newer( '/httpdocs/wp-content/themes/villakalma' ) ) // only upload newer files
+        .pipe( conn.dest( '/httpdocs/wp-content/themes/villakalma' ) );
+
+});
+
+
+function throwError(taskName, msg) {
+  throw new gutil.PluginError({
+      plugin: taskName,
+      message: msg
+    });
+}
