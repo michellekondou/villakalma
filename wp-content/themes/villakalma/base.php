@@ -4,7 +4,7 @@ use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 
 ?>
-
+<?php if ( !is_page( 'under-construction' )) : ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
@@ -40,3 +40,6 @@ use Roots\Sage\Wrapper;
     ?>
   </body>
 </html>
+<?php elseif ( is_page( 'under-construction' ) ) : ?>
+  <?php get_template_part('templates/under-construction'); ?>
+<?php endif; ?>

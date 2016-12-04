@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://dev.villakalma.local"
+    "devUrl": "http://dev.villakalma.local/"
   }
 }
