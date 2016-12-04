@@ -292,26 +292,26 @@ gulp.task('default', ['clean'], function() {
 
 //deploy
 
-gulp.task( 'deploy', function () {
+// gulp.task( 'deploy', function () {
 
-    var conn = ftp.create( {
-        host:     'ftp.villakalma.gr',
-        user:     'kalliopi055284',
-        password: 'bhdnfnkcZdvbZwTG',
-        parallel: 10,
-        log:      gutil.log
-    } );
+//     var conn = ftp.create( {
+//         host:     'ftp.villakalma.gr',
+//         user:     'kalliopi055284',
+//         password: 'bhdnfnkcZdvbZwTG',
+//         parallel: 10,
+//         log:      gutil.log
+//     } );
 
-    var globs = [path.dist, 'lang', 'lib', 'templates', './*.php', './style.css' ];
+//     var globs = [path.dist, 'lang', 'lib', 'templates', './*.php', './style.css' ];
 
-    // using base = '.' will transfer everything to /public_html correctly
-    // turn off buffering in gulp.src for best performance
+//     // using base = '.' will transfer everything to /public_html correctly
+//     // turn off buffering in gulp.src for best performance
 
-    return gulp.src( globs, { base: '.', buffer: false } )
-        .pipe( conn.newer( '/httpdocs/wp-content/themes/villakalma' ) ) // only upload newer files
-        .pipe( conn.dest( '/httpdocs/wp-content/themes/villakalma' ) );
+//     return gulp.src( globs, { base: '.', buffer: false } )
+//         .pipe( conn.newer( '/httpdocs/wp-content/themes/villakalma' ) ) // only upload newer files
+//         .pipe( conn.dest( '/httpdocs/wp-content/themes/villakalma' ) );
 
-});
+// });
 
 
 function throwError(taskName, msg) {
