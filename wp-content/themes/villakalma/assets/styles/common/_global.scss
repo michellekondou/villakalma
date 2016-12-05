@@ -3,7 +3,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: $brand-primary;
   font-size: 15px;
-  line-height: 1;
+  line-height: 1.4;
 }
 
 /* Make HTML 5 elements display block-level for consistent styling */
@@ -14,17 +14,49 @@ header, footer, section, aside, nav, article, figure, main {
   margin: 0; 
 }
 
+.banner {
+  margin-top: 40px;
+}
+
 /**
  * Navbar
  */
 .navbar {
   padding: 0;
   width: 100%;
+  border-bottom: 1px solid $brand-primary;
+  border-radius: 0;
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.navbar-brand > img {
+    display: block;
+    float: left;
+    vertical-align: bottom;
+}
+
+.navbar-brand > article {
+  margin-left: 1em;
+}
+
+.navbar-brand h1 {
+  font-size: 15px;
+  line-height: 2.3;
+}
+
+.navbar-brand h2 {
+  font-size: 11px;
+  color: #b7b7b7;
+  margin-bottom: 0;
 }
 
 .navbar-nav {
   .menu-item {
     float: left;
+    line-height: 100%;
   }
 
   .menu-item a {

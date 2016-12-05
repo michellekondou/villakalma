@@ -1,11 +1,15 @@
 <header class="banner">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?>
-             <!--  <img alt="Brand" src="..."> -->
+            <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
+              <img class="pull-sm-left" src="/wp-content/themes/villakalma/assets/images/2839C332.png" alt="<?php bloginfo('name'); ?>">
+              <article class="pull-sm-left">
+                <h1><img src="/wp-content/themes/villakalma/assets/images/BEE3C733.png" alt="<?php bloginfo('name'); ?>"></h1>
+                <h2>Luxury Small Villa • Paros Island • Greece</h2>
+              </article>
             </a>
           </div>
           <?php
@@ -17,18 +21,4 @@
       </nav>
     </div>
   </div>
-<!-- 
- <nav class="navBar">
-  <nav class="wrapper">
-    <div class="logo"></div>
-    <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="label-toggle"></label>
-    </input>
-    <ul>
-      <a href="#"><li>Lorem</li></a>
-      <a href="#"><li>Ipsum</li></a>
-      <a href="#"><li>Serum</li></a>
-    </ul>
-  </nav>
-</nav> -->
 </header>
