@@ -6,7 +6,7 @@ Template Name: Under Construction Template
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=greek" rel="stylesheet">
-  <link rel='stylesheet' id='sage/css-css'  href='//localhost:3000/wp-content/themes/villakalma/dist/styles/main.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='sage/css-css'  href='/wp-content/themes/villakalma/dist/styles/main.css' type='text/css' media='all' />
   <title>Villakalma under construction</title>
 </head>
 <body>
