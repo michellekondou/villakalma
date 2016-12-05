@@ -314,9 +314,9 @@ gulp.task('default', ['clean'], function() {
 // });
 
 
-function throwError(taskName, msg) {
-  throw new gutil.PluginError({
-      plugin: taskName,
-      message: msg
-    });
-}
+// function throwError(taskName, msg) {
+//   throw new gutil.PluginError({
+//       plugin: taskName,
+//       message: msg
+//     });
+// }

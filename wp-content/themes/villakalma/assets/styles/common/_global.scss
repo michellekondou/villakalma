@@ -1,7 +1,9 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color: #666;
+  color: $brand-primary;
+  font-size: 15px;
+  line-height: 1;
 }
 
 /* Make HTML 5 elements display block-level for consistent styling */
