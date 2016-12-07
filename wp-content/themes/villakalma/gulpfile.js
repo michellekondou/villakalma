@@ -1,6 +1,5 @@
 // ## Globals
 var argv         = require('minimist')(process.argv.slice(2));
-var gutil        = require('gulp-util');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync  = require('browser-sync').create();
 var changed      = require('gulp-changed');
@@ -21,7 +20,6 @@ var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 var prompt       = require('gulp-prompt');
-var ftp          = require( 'vinyl-ftp' );
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./assets/manifest.json');
