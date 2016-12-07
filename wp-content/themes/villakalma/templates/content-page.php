@@ -16,7 +16,7 @@ if( have_rows('image') ): ?>
       <figure class="main-image col-xs-12">
         <picture>
 
-          <img src="<?php the_sub_field('image'); ?>" alt="alt: " />
+          <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
         </picture>
       </figure>
       <?php endif; ?>

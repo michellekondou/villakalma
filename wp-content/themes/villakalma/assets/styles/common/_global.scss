@@ -183,9 +183,20 @@ img {
   max-width: 100%;
 }
 .main-image {
-  
+
 }
 .main-image img {
   display: block;
   margin: 0 auto;
+}
+
+/**
+ * Footer
+ */
+.content-info {
+  border-top: 1px solid $brand-primary;
+}
+.credits {
+  border-top: 1px solid $brand-primary;
+  font-size: 11px;
 }
