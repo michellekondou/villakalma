@@ -13,7 +13,7 @@ if( have_rows('image') ): ?>
         $file = get_sub_field('image');
       ?>
 
-      <figure class="top-banner">
+      <figure class="main-image col-xs-12">
         <picture>
 
           <img src="<?php the_sub_field('image'); ?>" alt="alt: " />
