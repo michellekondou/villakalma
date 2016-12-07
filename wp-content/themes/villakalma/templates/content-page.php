@@ -1,6 +1,36 @@
 <?php
 //PROJECTS
 // check if the flexible content field has rows of data 
+if( have_rows('image') ): ?>
+
+  <!-- loop through the rows of data -->
+  <?php while ( have_rows('image') ) : the_row();
+    
+    if( get_row_layout() == 'single_image' ): ?>
+    
+    <div class="row">
+      <?php if( get_sub_field('image') ): 
+        $file = get_sub_field('image');
+      ?>
+
+      <figure class="top-banner">
+        <picture>
+
+          <img src="<?php the_sub_field('image'); ?>" alt="alt: " />
+        </picture>
+      </figure>
+      <?php endif; ?>
+
+    </div>
+
+    <?php endif; ?>
+ 
+  <?php endwhile; ?>
+<?php endif; ?>
+<div class="container">
+<?php
+//PROJECTS
+// check if the flexible content field has rows of data 
 if( have_rows('main_content') ): ?>
 
   <!-- loop through the rows of data -->
@@ -83,5 +113,5 @@ if( have_rows('extended_content') ): ?>
     <?php endif; ?>
   <?php endwhile; ?>
 <?php endif; ?>
-
+</div>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
