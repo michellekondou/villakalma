@@ -37,7 +37,7 @@
         
         </article>
         <article class="col-xs-12 col-sm-6">
-        Website designed by <a href="http://www.lambandlamp.com">Lamb and Lamp</a> <span class="hidden-xs">•</span><span class="hidden-sm hidden-md hidden-lg"><br></span> Developed by <a href="http://michellekondou.me">Michelle Kondou</a>
+        Website designed by <a href="http://www.lambandlamp.com">Lamb and Lamp</a> <span class="hidden-sm-down">•</span><span class="hidden-sm-up"><br></span> Developed by <a href="http://michellekondou.me">Michelle Kondou</a>
         </article>
       </div>
     </div>

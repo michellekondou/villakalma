@@ -183,11 +183,10 @@ img {
   max-width: 100%;
 }
 .main-image {
-
+  margin: 0 auto;
 }
 .main-image img {
-  display: block;
-  margin: 0 auto;
+
 }
 
 /**
@@ -200,3 +199,132 @@ img {
   border-top: 1px solid $brand-primary;
   font-size: 11px;
 }
+
+/**
+ * Gallery
+ */
+div#masonry {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  -ms-flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vw;
+  // margin-left: -10px;
+  // margin-top: -10px;
+  font-size: 0; 
+}
+div#masonry .img-wrap { 
+  width: 25%;
+  flex: 1 0 calc(25% - 10px);
+  box-sizing: border-box;
+  // padding: 10px;
+  transition: 0.8s opacity;
+}
+div#masonry:hover img {
+  opacity: 1;
+}
+div#masonry:hover img:hover {
+  // opacity: 0.8;
+}
+
+@supports not (flex-wrap: wrap) {
+  div#masonry {
+    display: block;
+  }
+  div#masonry img { 
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div#masonry { height: 200vw; }
+  div#masonry img { width: 50%; }
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-size: 0; 
+  height: 100vw;
+  // margin-left: -10px;
+  // margin-top: -10px;
+}
+.items .item {
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  //flex: 1 0 calc(25% - 10px);
+  box-sizing: border-box;
+  background: #e0ddd5;
+  color: #171e42;
+  // padding: 10px;
+  // margin-left: 10px;
+  // margin-top: 10px;
+}
+
+/* ---- grid ---- */
+.gallery-container {
+  height:100%;
+  text-align: center;
+}
+
+.grid {
+  margin: 0 auto;
+  max-width: 1200px; 
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  width: 25%;
+  max-width: 280px;
+}
+
+@media(max-width: 1199px) { 
+  .grid-item--width2  {
+    width: 25%;
+    max-width: 240px;
+  }
+}
+
+@media(max-width: 1047px) { 
+  .grid-item--width2  {
+    width: 33.333%;
+    max-width: 220px;
+  }
+}
+
+@media(max-width: 959px) { 
+  .grid-item--width2 {
+    width: 33.333%;
+    max-width: 238px;
+ }
+}
+
+@media(max-width: 780px) { 
+  .grid-item--width2 {
+    width: 50%;
+    max-width: 330px;
+ }
+}
+
+@media(max-width: 697px) {
+  .grid-item--width2 {
+    width: 100%;
+    max-width: 360px;
+ }
+}
+ 
+// .grid-item--width2 { width: 50%; }
+

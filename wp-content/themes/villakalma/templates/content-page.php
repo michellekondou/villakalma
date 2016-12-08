@@ -1,3 +1,4 @@
+<?php if ( !is_page('gallery') ) : ?>
 <?php
 //PROJECTS
 // check if the flexible content field has rows of data 
@@ -13,7 +14,7 @@ if( have_rows('image') ): ?>
         $file = get_sub_field('image');
       ?>
 
-      <figure class="main-image col-xs-12">
+      <figure class="main-image">
         <picture>
 
           <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
@@ -114,4 +115,37 @@ if( have_rows('extended_content') ): ?>
   <?php endwhile; ?>
 <?php endif; ?>
 </div>
-<?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
+<?php elseif( is_page('gallery') ) : ?>
+ 
+<div class="gallery-container">
+ 
+ <?php 
+
+  $images = get_field('gallery');
+
+  if( $images ): 
+
+  ?>
+ 
+      <div class="photoswipe grid">
+      <?php foreach( $images as $image ): 
+          $file_id = $image['id'];
+          $file_url = $image['url'];
+      ?>
+      <div class="grid-item grid-item--width2 grid-item--width3 grid-item--width4">
+      <?php if( $file_url ): ?>
+      <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $file_url; ?>">
+      <?php endif; ?>
+        <img width="<?php echo $image['width']; ?>" src="<?php echo $image['url']; ?>" alt="<?php echo $image['caption']; ?>" />
+      <?php if( $file_url ): ?>
+      </a>
+      <?php endif; ?>
+      </div>
+      <?php endforeach; ?>
+      </div>
+ 
+  <div class="clearfix"></div>
+  <?php endif; ?>
+   
+</div>
+<?php endif; ?>
