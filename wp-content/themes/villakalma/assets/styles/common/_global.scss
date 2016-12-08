@@ -274,7 +274,7 @@ div#masonry:hover img:hover {
 
 .grid {
   margin: 0 auto;
-  max-width: 1200px; 
+  max-width: 1150px; 
 }
 
 /* clear fix */
@@ -298,35 +298,50 @@ div#masonry:hover img:hover {
   }
 }
 
-@media(max-width: 1047px) { 
+@media(max-width: 1047px) {
+  .grid {
+    max-width: 1047px; 
+  } 
   .grid-item--width2  {
     width: 33.333%;
     max-width: 220px;
   }
 }
 
-@media(max-width: 959px) { 
+@media(max-width: 959px) {
+  .grid {
+    max-width: 959px; 
+  }  
   .grid-item--width2 {
     width: 33.333%;
     max-width: 238px;
  }
 }
 
-@media(max-width: 780px) { 
+@media(max-width: 780px) {
+  .grid {
+    max-width: 780px; 
+  } 
   .grid-item--width2 {
     width: 50%;
     max-width: 360px;
  }
 }
 
-@media(max-width: 759px) { 
+@media(max-width: 759px) {
+  .grid {
+    max-width: 759px; 
+  }  
   .grid-item--width2 {
     width: 50%;
     max-width: 300px;
  }
 }
 
-@media(max-width: 649px) { 
+@media(max-width: 649px) {
+    .grid {
+    max-width: 649px; 
+  }   
   .grid-item--width2 {
     width: 50%;
     max-width: 280px;
@@ -334,6 +349,9 @@ div#masonry:hover img:hover {
 }
 
 @media(max-width: 595px) {
+  .grid {
+    max-width: 595px; 
+  }  
   .grid-item--width2 {
     width: 100%;
     max-width: 575px;
