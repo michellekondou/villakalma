@@ -105,7 +105,22 @@ function assets() {
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 
+/**
+ * Image sizes
+ */
+add_image_size( 'gallery-lg-ls', 548, 411, array( 'center', 'center' ) ); // (cropped)
+add_image_size( 'gallery-lg-pt', 548, 730, array( 'center', 'center' ) ); // (cropped)
 
- 
+
+function custom_thumb_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'gallery-lg-ls' => __( 'Gallery Large Landscape' ),
+        'gallery-lg-pt' => __( 'Gallery Large Portrait' ),
+    ) );
+}
+add_filter( 'image_size_names_choose', __NAMESPACE__ . '\\custom_thumb_sizes' );
+
+
+
 
 

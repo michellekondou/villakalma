@@ -141,35 +141,20 @@ if( have_rows('extended_content') ): ?>
 <?php elseif( is_page('gallery') ) : ?>
  
 <div class="gallery-container">
- 
- <?php 
-
-  $images = get_field('gallery');
-
-  if( $images ): 
-
-  ?>
- 
-      <div class="photoswipe grid">
-      <?php foreach( $images as $image ): 
-          $file_id = $image['id'];
-          $file_url = $image['url'];
-      ?>
-      <div class="grid-item grid-item--width2 grid-item--width3 grid-item--width4">
-      <?php if( $file_url ): ?>
-      <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $file_url; ?>">
-      <?php endif; ?>
-        <img width="<?php echo $image['width']; ?>" src="<?php echo $image['url']; ?>" alt="<?php echo $image['caption']; ?>" />
-      <?php if( $file_url ): ?>
+<?php 
+$images = get_field('gallery');
+if( $images ): 
+?>
+  <div class="photoswipe grid">
+  <?php foreach( $images as $image ): ?>
+    <div class="grid-item grid-item--width2 grid-item--width3 grid-item--width4">
+      <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>">
+        <img src="<?php if($image['width'] > $image['height']){ echo $image['sizes']['gallery-lg-ls']; } else { echo $image['sizes']['gallery-lg-pt']; } ?>" alt="<?php echo $image['caption']; ?>" />
       </a>
-      <?php endif; ?>
-      </div>
-      <?php endforeach; ?>
-      </div>
- 
-  <div class="clearfix"></div>
-  <?php endif; ?>
-   
+    </div>
+  <?php endforeach; ?>
+  </div>
+<?php endif; ?>   
 </div>
 
 <?php endif; ?>
