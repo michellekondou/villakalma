@@ -54,3 +54,13 @@ function register_shortcodes(){
 add_action( 'init', __NAMESPACE__ . '\\register_shortcodes');
 
 
+function my_acf_init() {
+  
+  acf_update_setting('google_api_key', 'AIzaSyA_qXHfrU7dT-k5es8MLSk9xyc0PnSfVbU');
+}
+
+add_action('acf/init', __NAMESPACE__ . '\\my_acf_init');
+
+
+
+

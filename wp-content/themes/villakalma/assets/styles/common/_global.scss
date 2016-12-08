@@ -359,4 +359,25 @@ div#masonry:hover img:hover {
 }
  
 // .grid-item--width2 { width: 50%; }
+.btn.extended-content {
+  margin: 0 auto;  
+  border-radius: 0;  
+  margin-bottom: 60px;
+  background: $brand-primary;
+  color: #fff;
+}
 
+.btn.extended-content.about {
+  background: none;
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+}
+
+.btn.extended-content:focus {
+  background: none;
+  color: $brand-primary;
+  outline: 0px auto $brand-primary;
+  outline-offset: 0px;  
+}
+
+ 

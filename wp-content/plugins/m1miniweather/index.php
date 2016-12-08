@@ -99,7 +99,7 @@ class m1_miniweather_widget extends WP_Widget
 			echo $args['after_title'];
 			if ($m1mw_data->error ===false) {
 				echo '<div class="wi wi-owm-' . $m1mw_data->weather[0]->id .'" title="' . $m1mw_data->weather[0]->description . '" style="font-size: 2em;' . $m1mw_fontColor . '">
-			       <span class="m1mw_temp">' . $m1mw_data->tempC . '&deg;</span>
+			       <span class="m1mw_temp" style="font-family: Open Sans, sans-serif">' . $m1mw_data->tempC . '&deg;</span>
 			     </div>';
 			} else {
 				echo $m1mw_data->error;
