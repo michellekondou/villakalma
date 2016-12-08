@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_1'); ?></div>
           <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_2'); ?></div>
-          <div class="col-xs-12 col-sm-4"><?php dynamic_sidebar('footer'); ?></div>
+          <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_3'); ?></div>
         </div>
 
         <?php endif; ?>

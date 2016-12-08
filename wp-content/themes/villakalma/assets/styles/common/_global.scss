@@ -380,4 +380,23 @@ div#masonry:hover img:hover {
   outline-offset: 0px;  
 }
 
- 
+
+#wpc-weather .location_name {
+  display: none!important;
+}
+#wpc-weather .now {
+  overflow: hidden;
+}
+#wpc-weather .time_symbol,
+#wpc-weather .time_temperature {
+  float: left;
+}
+#wpc-weather.medium .now .time_symbol svg {
+  margin-bottom: 0;
+} 
+#wpc-weather.medium .now .time_temperature {
+  font-size: 32px;
+  margin-top: 30px;
+}
+
+
