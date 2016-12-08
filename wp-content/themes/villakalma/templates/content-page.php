@@ -12,9 +12,7 @@
         <div class="acf-map">
  
           <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-             
             <p class="address"><?php echo $location['address']; ?></p>
-            
           </div>
  
         </div>
@@ -23,34 +21,18 @@
 <?php endif; ?>
 
 <?php
-
-// check if the flexible content field has rows of data 
-if( have_rows('image') ): ?>
-
-  <!-- loop through the rows of data -->
-  <?php while ( have_rows('image') ) : the_row();
-    
-    if( get_row_layout() == 'single_image' ): ?>
-    
-    <div class="row">
-      <?php if( get_sub_field('image') ): 
-        $file = get_sub_field('image');
-      ?>
-
-      <figure class="main-image">
-        <picture>
-
-          <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
-        </picture>
-      </figure>
-      <?php endif; ?>
-
-    </div>
-
-    <?php endif; ?>
- 
-  <?php endwhile; ?>
+  $file = get_field('single_image');
+  if( $file ): 
+?>
+<div class="row">
+   <figure class="main-image">
+    <picture>
+      <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
+    </picture>
+  </figure>
+</div>
 <?php endif; ?>
+
 <div class="container">
 <?php
 //PROJECTS
