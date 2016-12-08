@@ -319,6 +319,13 @@ div#masonry:hover img:hover {
  }
 }
 
+@media(max-width: 649px) { 
+  .grid-item--width2 {
+    width: 50%;
+    max-width: 280px;
+ }
+}
+
 @media(max-width: 480px) {
   .grid-item--width2 {
     width: 100%;
