@@ -395,7 +395,6 @@ div#masonry:hover img:hover {
  }
 }
  
- 
 .btn.extended-content {
   margin: 0 auto;
   @include rem-fallback(margin-top, $basex4);  
@@ -435,7 +434,7 @@ div#masonry:hover img:hover {
   @include rem-fallback(margin-top, $base);
   fill: $brand-primary;
   transform: rotate(180deg);
-  transition: all 1s ease;
+  transition: all 0.5s ease;
 }
 
 .arrow-down.up {
