@@ -7,7 +7,7 @@
       $location = get_field('google_maps');
       if( !empty($location) ):
     ?>
- 
+    <div class="container-fluid">
       <div class="row">
         <div class="acf-map">
  
@@ -17,6 +17,7 @@
  
         </div>
       </div>
+    </div>
     <?php endif; ?>
 <?php endif; ?>
 
@@ -24,12 +25,14 @@
   $file = get_field('single_image');
   if( $file ): 
 ?>
-<div class="row">
-   <figure class="main-image">
-    <picture>
-      <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
-    </picture>
-  </figure>
+<div class="container-fluid">
+  <div class="row">
+     <figure class="main-image">
+      <picture>
+        <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
+      </picture>
+    </figure>
+  </div>
 </div>
 <?php endif; ?>
 
@@ -67,7 +70,7 @@ if( have_rows('main_content') ): ?>
 
     <?php if( get_row_layout() == 'columns' ): ?>
 
-    <div class="row">
+    <div class="row columns">
       <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_1'); ?></div>
       <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_2'); ?></div>
       <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_3'); ?></div>
@@ -97,13 +100,21 @@ if( have_rows('extended_content') ): ?>
 <?php endif; ?>
 </button>
 </div>
+<div class="row arrow">
+  <svg version="1.1" id="Layer_1" class="arrow-down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="20px" height="10px" viewBox="0 0 20 10" enable-background="new 0 0 20 10" xml:space="preserve">
+  <g>
+    <polygon points="17.085,9.217 10,2.19 2.914,9.217 2.21,8.506 10,0.782 17.79,8.506   "/>
+  </g>
+  </svg>
+</div>
 <div class="collapse" id="collapseContent">
   <!-- loop through the rows of data -->
   <?php while ( have_rows('extended_content') ) : the_row();
     
     if( get_row_layout() == 'text' ): ?>
 
-    <div class="row">
+    <div class="row extended-content">
       <?php if( get_sub_field('title') ): ?>
       <h2 class="col-xs-12"><?php the_sub_field('title'); ?></h2>
       <?php endif; ?>
@@ -117,7 +128,7 @@ if( have_rows('extended_content') ): ?>
     <?php if( get_row_layout() == 'column_title' ): ?>
 
     <?php if( get_sub_field('title') ): ?>
-    <div class="row">
+    <div class="row extended-content">
       <h2 class="col-xs-12"><?php the_sub_field('title'); ?></h2>
     </div>
     <?php endif; ?>
@@ -126,7 +137,7 @@ if( have_rows('extended_content') ): ?>
 
     <?php if( get_row_layout() == 'columns' ): ?>
 
-    <div class="row">
+    <div class="row columns extended-content">
       <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_1'); ?></div>
       <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_2'); ?></div>
       <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_3'); ?></div>

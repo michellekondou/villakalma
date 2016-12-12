@@ -174,7 +174,7 @@
 
       // Fire page-specific init JS, and then finalize JS
       $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
-        UTIL.fire(classnm);
+        UTIL.fire(classnm);  
         UTIL.fire(classnm, 'finalize');
       });
 
@@ -182,7 +182,21 @@
       UTIL.fire('common', 'finalize');
 
 
-    }
+      $('#nav-icon').click(function(){
+        $(this).toggleClass('open');
+        $('#nav-overlay').toggleClass('open');
+        $('.navbar-nav').toggleClass('open');
+      }); 
+
+      $('#collapseContent').on('show.bs.collapse', function () {
+        $('.arrow-down').toggleClass('up');
+      });
+
+      $('#collapseContent').on('hidden.bs.collapse', function () {
+        $('.arrow-down').toggleClass('up');
+      });
+
+    }//end events
   };
 
   // Load Events

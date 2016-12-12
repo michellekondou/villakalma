@@ -16,8 +16,8 @@
 	<!-- Current weather -->
 	<?php echo $wpc_html_now_start; ?>
 		<?php echo $wpc_html_now_location_name; ?>
-		<?php echo $wpc_html_display_now_time_symbol; ?>
 		<?php echo $wpc_html_display_now_time_temperature; ?>
+		<?php echo $wpc_html_display_now_time_symbol; ?>
 	<?php echo $wpc_html_now_end; ?>
 	
 	<?php echo $wpc_html_weather; ?>

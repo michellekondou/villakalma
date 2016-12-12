@@ -1,5 +1,5 @@
 @import "common/variables";
-
+@import "mixins/px_to_rem";
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 @import "../../bower_components/bootstrap/scss/bootstrap.scss";
@@ -11,6 +11,7 @@
 @import "components/forms";
 @import "components/grid";
 @import "components/wp-classes";
+@import "components/nav-responsive";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";

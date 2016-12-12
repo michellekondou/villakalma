@@ -1,3 +1,4 @@
+
 <header class="banner">
   <div class="container-fluid">
     <div class="row">
@@ -313,11 +314,19 @@
               </article>
             </a>
           </div>
+          <div id="nav-overlay"></div>
           <?php
             if (has_nav_menu('primary_navigation')) :
             wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav']);
             endif;
           ?>
+          
+          <div id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </nav>
     </div>

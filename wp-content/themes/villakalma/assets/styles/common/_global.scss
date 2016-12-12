@@ -2,8 +2,10 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: $brand-primary;
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 16px;
+  font-size: 1rem;  
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 /* Make HTML 5 elements display block-level for consistent styling */
@@ -14,16 +16,48 @@ header, footer, section, aside, nav, article, figure, main {
   margin: 0; 
 }
 
-.banner {
-  margin-top: 40px;
+.container {
+  max-width: 860px;
 }
 
+.banner {
+  margin-top: 34px;
+}
+
+.main {
+  padding-left: 0!important;
+  padding-right: 0!important;
+  padding-bottom: 68px;
+}
+
+h2 {
+  text-align: center;
+  @include rem-fallback(font-size, 24);
+  line-height: 1.3;
+  @include rem-fallback(margin-top, $basex4);
+  @include rem-fallback(margin-bottom, $basex2);
+}
+
+.extended-content h2 {
+  @include rem-fallback(font-size, 28);
+  font-weight: $light;
+}
+
+p {  
+  @include rem-fallback(margin-bottom, $basex2);  
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+   
 /**
  * Navbar
  */
 .navbar {
   padding: 0;
   width: 100%;
+  opacity: 1;
   border-bottom: 1px solid $brand-primary;
   border-radius: 0;
 }
@@ -43,14 +77,14 @@ header, footer, section, aside, nav, article, figure, main {
 }
 
 .navbar-brand h1 {
-  font-size: 15px;
+  @include rem-fallback(font-size, 15);
   line-height: 2.3;
 }
 
 .navbar-brand h2 {
-  font-size: 11px;
+  @include rem-fallback(font-size, 11);
   color: #b7b7b7;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .navbar-nav {
@@ -126,8 +160,8 @@ $color3: #903749; //Maroon
   
   #menu-toggle {display: none;}
   
-  .label-toggle {display: none;}
-  
+  .label-toggle {display: none;}  
+   
   .wrapper {
     align-items: center;
     display: flex;
@@ -182,9 +216,12 @@ $color3: #903749; //Maroon
 img {
   max-width: 100%;
 }
+
 .main-image {
   margin: 0 auto;
+  border-bottom: 1px solid $brand-primary;
 }
+
 .main-image img {
 
 }
@@ -197,7 +234,7 @@ img {
 }
 .credits {
   border-top: 1px solid $brand-primary;
-  font-size: 11px;
+  @include rem-fallback(font-size, 11);
 }
 
 /**
@@ -358,13 +395,21 @@ div#masonry:hover img:hover {
  }
 }
  
-// .grid-item--width2 { width: 50%; }
+ 
 .btn.extended-content {
-  margin: 0 auto;  
-  border-radius: 0;  
-  margin-bottom: 60px;
-  background: $brand-primary;
+  margin: 0 auto;
+  @include rem-fallback(margin-top, $basex4);  
+  border: none; 
+  border-radius: 0; 
+  background: $grey-light;
   color: #fff;
+  letter-spacing: 1px;  
+}
+
+.btn.extended-content:focus {
+  background: $grey-light;
+  outline: 0px auto $grey-light;
+  outline-offset: 0px;  
 }
 
 .btn.extended-content.about {
@@ -373,30 +418,81 @@ div#masonry:hover img:hover {
   color: $brand-primary;
 }
 
-.btn.extended-content:focus {
+.btn.extended-content.about:focus {
   background: none;
   color: $brand-primary;
   outline: 0px auto $brand-primary;
   outline-offset: 0px;  
 }
 
+.arrow {
+  text-align: center;
+}
+
+.arrow-down {
+  display: block;
+  margin: 0 auto;
+  @include rem-fallback(margin-top, $base);
+  fill: $brand-primary;
+  transform: rotate(180deg);
+  transition: all 1s ease;
+}
+
+.arrow-down.up {
+    transform: rotate(0deg);
+}
+
+#wpc-weather {
+  margin: 0;
+  padding: 0; 
+}
 
 #wpc-weather .location_name {
   display: none!important;
 }
+
 #wpc-weather .now {
   overflow: hidden;
 }
+
 #wpc-weather .time_symbol,
 #wpc-weather .time_temperature {
-  float: left;
+  float: right;
 }
+
 #wpc-weather.medium .now .time_symbol svg {
   margin-bottom: 0;
-} 
+}
+
 #wpc-weather.medium .now .time_temperature {
   font-size: 32px;
   margin-top: 30px;
+}
+
+svg.climacon {
+  fill: $brand-primary;
+}
+
+
+
+.columns p {
+  line-height: 1.1;
+  @include rem-fallback(margin-bottom, $base); 
+}
+
+.columns p:last-child {
+  margin-bottom: 0;
+}
+
+.columns ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+  text-indent: -0.6em;
+}
+
+.columns li {
+  @include rem-fallback(margin-bottom, $base); 
 }
 
 

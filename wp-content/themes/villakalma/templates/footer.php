@@ -1,5 +1,5 @@
 <footer class="content-info">
-  <div class="container">
+  <div class="container info">
     <?php 
       $args = array(
         'page_id' => 90 //footer
@@ -29,7 +29,7 @@
     <?php endwhile; ?>
     <?php endif; ?>
   </div>
-  <div class="container-fluid credits">
+  <div class="credits">
     <div class="container">
       <div class="row">
         <article class="col-xs-12 col-sm-6">
