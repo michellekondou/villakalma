@@ -47,7 +47,7 @@ if( have_rows('main_content') ): ?>
     
     if( get_row_layout() == 'text' ): ?>
     
-    <div class="row">
+    <div class="row main-content">
       <?php if( get_sub_field('title') ): ?>
       <h2 class="col-xs-12"><?php the_sub_field('title'); ?></h2>
       <?php endif; ?>

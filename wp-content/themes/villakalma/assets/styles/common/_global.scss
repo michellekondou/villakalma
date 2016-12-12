@@ -472,7 +472,9 @@ svg.climacon {
   fill: $brand-primary;
 }
 
-
+.columns:first-child {
+    @include rem-fallback(margin-top, $basex4);
+}
 
 .columns p {
   line-height: 1.1;
@@ -494,4 +496,11 @@ svg.climacon {
   @include rem-fallback(margin-bottom, $base); 
 }
 
+.acf-map {
+  border-bottom: 1px solid $brand-primary;
+}
+
+.main-content + .columns {
+  @include rem-fallback(margin-top, $basex2); 
+}
 
