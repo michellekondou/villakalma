@@ -38,16 +38,23 @@ header, footer, section, aside, nav, article, figure, main {
   border-bottom: none;
 }
 
-.main 
+.main ul,
+.columns ul {
+  list-style: none;
+  margin-left: 0;
+  @include rem-fallback(padding-left, 8); 
+  text-indent: -0.6em;
+}
+
+.main li,
+.columns li {
+  @include rem-fallback(margin-bottom, $base); 
+}
 
 .main li::before, 
 .columns li::before {
   content: '•';
   @include rem-fallback(padding-right, 5);
-}
-
-.main ul {
-  @include rem-fallback(padding-left, 8);
 }
 
 h2 {
@@ -534,17 +541,6 @@ div#masonry:hover img:hover {
 
 .columns p:last-child {
   margin-bottom: 0;
-}
-
-.columns ul {
-  list-style: none;
-  margin-left: 0;
-  @include rem-fallback(padding-left, 8); 
-  text-indent: -0.6em;
-}
-
-.columns li {
-  @include rem-fallback(margin-bottom, $base); 
 }
 
 .acf-map {
