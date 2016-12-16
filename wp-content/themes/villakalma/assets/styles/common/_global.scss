@@ -132,7 +132,7 @@ p:last-child {
     transition: color 0.5s ease;
     &:hover {
       text-decoration: none;
-      color: $grey-light;
+      color: $grey-light-hover;
     }
   }     
   .menu-item a::after {
