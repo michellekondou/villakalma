@@ -139,7 +139,9 @@ p:last-child {
     @include rem-fallback(padding-bottom, 15);
     letter-spacing: 0;
     transition: color 0.5s ease;
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       text-decoration: none;
       color: $grey-light-hover;
     }
