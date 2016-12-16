@@ -523,7 +523,7 @@ svg.climacon {
 .columns ul {
   list-style: none;
   margin-left: 0;
-  @include rem-fallback(padding-left, 8);
+  @include rem-fallback(padding-left, 8); 
   text-indent: -0.6em;
 }
 
