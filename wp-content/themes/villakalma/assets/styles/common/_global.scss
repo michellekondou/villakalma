@@ -5,7 +5,7 @@ body {
   font-size: 16px;
   font-size: 1rem;  
   line-height: 1.5;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
 }
 
 /* Make HTML 5 elements display block-level for consistent styling */
@@ -42,6 +42,7 @@ h2 {
   text-align: center;
   @include rem-fallback(font-size, 24);
   line-height: 1.3;
+  letter-spacing: 1px;
   @include rem-fallback(margin-top, $basex4);
   @include rem-fallback(margin-bottom, $basex2);
 }
@@ -486,12 +487,15 @@ div#masonry:hover img:hover {
 }
 
 #wpc-weather.medium .now .time_temperature {
-  font-size: 32px;
-  margin-top: 30px;
+  @include rem-fallback(font-size, 32);
+  @include rem-fallback(margin-top, 15);
+  @include rem-fallback(margin-left, 15);
 }
 
 svg.climacon {
   fill: $brand-primary;
+  width: 60px;
+  height: 60px;
 }
 
 .columns:first-child {
