@@ -40,6 +40,11 @@ header, footer, section, aside, nav, article, figure, main {
 
 .main li::before {
   content: '•';
+  @include rem-fallback(padding-right, 5);
+}
+
+.main ul {
+  @include rem-fallback(padding-left, 8);
 }
 
 h2 {
