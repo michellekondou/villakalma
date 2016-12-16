@@ -30,11 +30,13 @@ header, footer, section, aside, nav, article, figure, main {
   @include rem-fallback(padding-bottom, $basex4);
 }
 
-.home.main { 
+.home.main,
+.book-with-us .main { 
   padding-bottom: 0;  
 }
 
-.home.main .main-image {
+.home.main .main-image,
+.book-with-us .main .main-image {
   border-bottom: none;
 }
 
