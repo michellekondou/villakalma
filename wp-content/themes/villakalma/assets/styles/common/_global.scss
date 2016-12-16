@@ -38,6 +38,10 @@ header, footer, section, aside, nav, article, figure, main {
   border-bottom: none;
 }
 
+.main li::before {
+  content: '•';
+}
+
 h2 {
   text-align: center;
   @include rem-fallback(font-size, 24);
