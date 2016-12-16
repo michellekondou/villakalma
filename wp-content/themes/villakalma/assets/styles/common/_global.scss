@@ -84,6 +84,10 @@ p:last-child {
 .main p {
   letter-spacing: 1px;
 }
+
+.small, small {
+  @include rem-fallback(font-size, 11);
+}
    
 /**
  * Navbar
@@ -145,7 +149,11 @@ p:last-child {
       text-decoration: none;
       color: $grey-light-hover;
     }
-  }     
+  } 
+  .current-menu-item a {
+    color: $grey-light-hover;
+    cursor: default;
+  }    
   .menu-item a::after {
     content: '|';
     display: inline;
