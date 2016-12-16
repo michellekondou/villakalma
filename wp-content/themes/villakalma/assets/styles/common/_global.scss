@@ -89,6 +89,7 @@ p:last-child {
 
 .navbar-brand {
   padding: 0;
+  @include rem-fallback(padding-left, 30);
 }
 
 .navbar-brand > img {
@@ -98,12 +99,14 @@ p:last-child {
 }
 
 .navbar-brand > article {
-  margin-left: 1em;
+  @include rem-fallback(margin-left, 30);
 }
 
 .navbar-brand h1 {
+  @include rem-fallback(margin-top, 5);
+  @include rem-fallback(margin-bottom, 5);
   @include rem-fallback(font-size, 15);
-  line-height: 2.3;
+  line-height: 1;
 }
 
 .navbar-brand h2 {
