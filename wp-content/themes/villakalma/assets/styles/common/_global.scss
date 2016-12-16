@@ -88,24 +88,38 @@ p:last-child {
 }
 
 .navbar-nav {
+  @include rem-fallback(margin-top, 24);
   float: right;
   .menu-item {
     float: left;
     line-height: 100%;
+     
   }
-
-  .menu-item a {
+  .menu-item a {      
     display: block;
-    padding-top:    .425rem;
-    padding-bottom: .425rem;
-
-    + .menu-item a  {
-      margin-left: 1rem;
+    @include rem-fallback(font-size, 15);
+    @include rem-fallback(padding-top, 15);
+    @include rem-fallback(padding-bottom, 15);
+    letter-spacing: 0;
+    transition: color 0.5s ease;
+    &:hover {
+      text-decoration: none;
+      color: $grey-light;
     }
   }
-
+  .menu-item a::after {
+    content: '|';
+    display: inline;
+    color: $grey-lighter;
+    @include rem-fallback(padding-left, 15);
+    @include rem-fallback(padding-right, 15);
+  }
+  .menu-item:last-child a::after {
+    content: '';
+    padding: 0;
+  }
   .menu-item + .menu-item {
-    margin-left: 1rem;
+    //margin-left: 1rem;
   }
 }
 
