@@ -2988,3 +2988,10 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
     }
 
 }
+.gform_wrapper input {
+  border: 1px solid $brand-primary;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}

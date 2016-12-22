@@ -20,7 +20,7 @@
     </div>
     <?php endif; ?>
 <?php endif; ?>
-
+<?php if( !is_page('book-with-us') ) : ?>
 <?php
   $file = get_field('single_image');
   if( $file ): 
@@ -48,11 +48,14 @@ if( have_rows('main_content') ): ?>
     if( get_row_layout() == 'text' ): ?>
     
     <div class="row main-content">
+      
       <?php if( get_sub_field('title') ): ?>
       <h2 class="col-xs-12"><?php the_sub_field('title'); ?></h2>
       <?php endif; ?>
       <?php if( get_sub_field('body_text') ): ?>
+
       <div class="col-xs-12"><?php the_sub_field('body_text'); ?></div>
+
       <?php endif; ?>
     </div>
 
@@ -148,7 +151,68 @@ if( have_rows('extended_content') ): ?>
   </div>
 <?php endif; ?>
 </div>
+<?php elseif( is_page('book-with-us') ) : ?>
+<?php
+  $file = get_field('single_image');
+  if( $file ): 
+?>
+<div class="container-fluid">
+  <div class="row">
+     <div class="background-image" style="background: url('<?php echo $file['url'] ?>') center center">
+       
+      <div class="container">
+<?php
  
+// check if the flexible content field has rows of data 
+if( have_rows('main_content') ): ?>
+
+  <!-- loop through the rows of data -->
+  <?php while ( have_rows('main_content') ) : the_row();
+    
+    if( get_row_layout() == 'text' ): ?>
+    
+    <div class="row main-content">
+      
+      <?php if( get_sub_field('title') ): ?>
+      <h2 class="col-xs-12"><?php the_sub_field('title'); ?></h2>
+      <?php endif; ?>
+      <?php if( get_sub_field('body_text') ): ?>
+
+      <div class="col-xs-12"><?php the_sub_field('body_text'); ?></div>
+
+      <?php endif; ?>
+    </div>
+
+    <?php endif; ?>
+
+    <?php if( get_row_layout() == 'column_title' ): ?>
+
+    <?php if( get_sub_field('title') ): ?>
+    <div class="row">
+      <h2 class="col-xs-12"><?php the_sub_field('title'); ?></h2>
+    </div>
+    <?php endif; ?>
+
+    <?php endif; ?>
+
+    <?php if( get_row_layout() == 'columns' ): ?>
+
+    <div class="row columns">
+      <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_1'); ?></div>
+      <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_2'); ?></div>
+      <div class="col-xs-12 col-sm-4"><?php the_sub_field('column_3'); ?></div>
+    </div>
+
+    <?php endif; ?>
+  <?php endwhile; ?>
+<?php endif; ?>
+     </div>
+       
+  </div>
+</div>
+<?php endif; ?>
+
+<?php endif; ?>
 <?php elseif( is_page('gallery') ) : ?>
  
 <div class="gallery-container">

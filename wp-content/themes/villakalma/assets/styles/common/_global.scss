@@ -563,3 +563,134 @@ div#masonry:hover img:hover {
   @include rem-fallback(margin-top, $basex2); 
 }
 
+
+/**
+ * Form
+ */
+.gform_wrapper {
+    margin-top: 15%!important;
+}
+.gform_wrapper ul.gform_fields {
+  display: flex!important;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.gform_wrapper input.datepicker {
+  width: 100%!important;
+}
+
+.gform_wrapper ul.gform_fields li {
+  padding-left: 0;
+  margin-top: 0!important;
+}
+
+.gform_wrapper .gform_footer {
+  text-align: center!important;
+}
+
+.gform_wrapper input.gform_button.button {
+  background-color: $brand-primary;
+  border: none;
+  outline: none;
+  @include rem-fallback(font-size, 17);
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: lowercase;
+  padding-left: 30px!important;
+  padding-right: 30px!important;
+  padding-top: 10px!important;
+  padding-bottom: 10px!important;
+}
+
+.gform_wrapper input,
+.gform_wrapper textarea {
+  background: #fff;
+  border: 1px solid $brand-primary;
+  font-size: 14px!important;
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+  @include text-input-placeholder-color($brand-primary);
+}
+
+.gform_wrapper .gfield_label {
+  display: none!important;
+}
+
+.gform_wrapper .top_label div.ginput_container {
+  margin-top: 0!important;
+}
+
+.gform_wrapper textarea.large {
+  height: 160px!important;
+}
+
+.gform_wrapper.gform_validation_error {
+  margin-top: 20px!important;
+}
+
+.gform_wrapper .field_description_below .gfield_description {
+  padding-top: 0!important;
+}
+
+.gform_wrapper div.validation_error {
+    background-color: rgba(255,255,255,.6)!important;
+    margin-bottom: 15px!important;
+    padding: 10px 0!important;  
+}
+
+.gform_wrapper li.gfield.gfield_error, 
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+    background-color: rgba(255,255,255,.6)!important;
+    margin-bottom: 6px!important;
+    border-top: 1px solid $brand-primary!important;
+    border-bottom: 1px solid $brand-primary!important;
+    padding-bottom: 6px;
+    padding-top: 8px;
+}
+
+.gforms_confirmation_message {
+  background-color: #fff;
+  text-align: center;
+  margin-top: 15%;
+  padding: 25px;
+}
+
+@media screen and (max-width: 641px) {
+  .gform_wrapper input,
+  .gform_wrapper textarea {
+    background: #fff;
+    border: 1px solid $brand-primary;
+    font-size: 14px!important;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+    padding-top: 2px!important;
+    padding-bottom: 2px!important;
+    @include text-input-placeholder-color($brand-primary);
+  }
+
+  .gform_wrapper .gform_footer {
+    margin-top: 0!important;
+  }
+
+  .gform_button.button {
+    width: auto!important;
+    line-height: 1.5!important;
+  }
+}
+
+:focus {
+  outline: $brand-primary auto 0px;
+  border-radius: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 630px;
+  // filter: blur(1px);  
+}
+ 
