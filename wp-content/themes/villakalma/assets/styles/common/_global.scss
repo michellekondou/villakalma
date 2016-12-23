@@ -607,21 +607,10 @@ div#masonry:hover img:hover {
   //.gallery-wide { height: 741px; }
 }
 
-.gallery-cell { 
-  width: 100%;
-  height: 100%;
-}
-
-.col-xs-12.gallery-cell {
-  padding: 0;
-}
-
-/* move page dots into carousel */
-.flickity-page-dots { bottom: 10px; }
 
 /* carousel height, as percentage of width */
 .gallery-wide {
-  padding-bottom: 33.3%;
+  padding-bottom: 38.6%;
 }
 
 /* viewport inherit size from carousel */
@@ -635,8 +624,17 @@ div#masonry:hover img:hover {
   height: 100%;
 }
 
+.col-xs-12.gallery-cell {
+  padding: 0;
+}
+
 .flickity-prev-next-button {
   display: none;
+}
+
+/* move page dots into carousel */
+.flickity-page-dots { 
+  bottom: 10px; 
 }
 
 .flickity-page-dots li:before {

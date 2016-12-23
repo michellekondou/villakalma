@@ -32,7 +32,8 @@
   <div class="row">
      <figure class="main-image">
       <picture>
-        <img src="<?php echo $file['url'] ?>" alt="<?php echo $file['caption'] ?>" />
+        <img class="hidden-xs-down" src="<?php echo $file_desktop['url'] ?>" alt="<?php echo $file_desktop['caption'] ?>" />
+        <img class="hidden-xs-up" src="<?php echo $file_mobile['url'] ?>" alt="<?php echo $file_mobile['caption'] ?>" />
       </picture>
     </figure>
   </div>
