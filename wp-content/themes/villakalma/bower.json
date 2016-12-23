@@ -11,5 +11,8 @@
     "photoswipe": "^4.1.1",
     "packery": "^2.1.1",
     "imagesloaded": "^4.1.1"
+  },
+  "devDependencies": {
+    "flickity": "^2.0.5"
   }
 }

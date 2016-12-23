@@ -169,106 +169,7 @@ p:last-child {
     //margin-left: 1rem;
   }
 }
-
-//Color Variables
-$color1: #ccc; //Red
-$color2: #fff; //Plum
-$color3: #903749; //Maroon
-
-// Base Styles
-.navBar {
-  background-color: $color2;
-  position: fixed;
-  min-width: 100%;
-}
-
-.logo {
-  background-color: $color1;
-  border-radius: 50px;
-  display: inline-block;
-  height: 45px;
-  margin: 1em 0;
-  width: 45px;
-}
-
-// Content Wrapper
-.wrapper {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0 2%;
-}
-
-// Full Navigation, including mobile menu
-.navBar {
-  ul {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    width: 50%;
-    
-    a {
-      color: $color1;
-      text-decoration: none;
-      transition: all .5s ease;
-
-      &:hover {color: $color3;}
-    }
-  }
-  
-  li  {
-    display: inline-block;
-  }
-  
-  #menu-toggle {display: none;}
-  
-  .label-toggle {display: none;}  
-   
-  .wrapper {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  @media screen and (max-width: 768px) {
-    ul {
-      background-color: $color1;
-      display: block;
-      height: 0;
-      list-style-type: none;
-      opacity: 0;
-      text-align: center;
-      transition: all 1s ease;
-      width: 100%;
-      visibility: hidden;
-    }
-    
-    li {
-      border-bottom: 2px solid $color2;
-      color: $color2;
-      display: block;
-      font-size: 1.5em;
-      padding: 2em 0;
-    }
-  
-    #menu-toggle:checked ~ ul {
-      opacity: 1;
-      height: 100vh;
-      visibility: visible;
-    }
-    
-    .label-toggle {
-      background: linear-gradient(to bottom, $color1 0%, $color1 20%, transparent 20%, transparent 40%, $color1 40%, $color1 60%, transparent 60%, transparent 80%, $color1 80%, $color1 100%); //Gradient Hamburger
-      cursor: pointer;
-      display: block;
-      float: right;
-      height: 35px;
-      margin-top: 1em;
-      width: 35px;
-    }
-    
-    .wrapper {display: block;}
-  }
-}
+ 
 
 
 /**
@@ -690,7 +591,54 @@ div#masonry:hover img:hover {
 
 .background-image {
   width: 100%;
-  height: 630px;
-  // filter: blur(1px);  
+  height: 642px; 
 }
  
+ 
+
+/* flickity */
+@media screen and (min-width: 992px) {
+  //.gallery-wide { height: 440px; }  
+}
+@media screen and (min-width: 1141px) {
+  //.gallery-wide { height: 642px; }
+}
+@media screen and (min-width: 1660px) {
+  //.gallery-wide { height: 741px; }
+}
+
+.gallery-cell { 
+  width: 100%;
+  height: 100%;
+}
+
+.col-xs-12.gallery-cell {
+  padding: 0;
+}
+
+/* move page dots into carousel */
+.flickity-page-dots { bottom: 10px; }
+
+/* carousel height, as percentage of width */
+.gallery-wide {
+  padding-bottom: 33.3%;
+}
+
+/* viewport inherit size from carousel */
+.gallery-wide .flickity-viewport {
+  position: absolute;
+  width: 100%;
+}
+
+/* cell inherit height from carousel */
+.gallery-cell {
+  height: 100%;
+}
+
+.flickity-prev-next-button {
+  display: none;
+}
+
+.flickity-page-dots li:before {
+  content: '';
+}

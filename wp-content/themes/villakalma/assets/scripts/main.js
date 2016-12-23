@@ -196,6 +196,21 @@
         $('.arrow-down').toggleClass('up');
       });
 
+      //flickity
+      $('.gallery-wide').flickity({
+         // options
+        cellAlign: 'left',
+        selectedAttraction: 0.23,
+        friction: 1,
+        wrapAround: true,
+        imagesLoaded: true,
+        resize: true,
+        touchVerticalScroll: true,
+        setGallerySize: true,
+        lazyLoad: true,
+        autoPlay: 3000
+      });
+
     }//end events
   };
 

@@ -33,8 +33,7 @@
     <div class="container">
       <div class="row">
         <article class="col-xs-12 col-sm-6">
-        Villa Kalma Santa Maria <?php echo get_the_time('Y', $post ); ?> 
-        
+        Villa Kalma <?php echo get_the_time('Y', $post ); ?> 
         </article>
         <article class="col-xs-12 col-sm-6">
         Website designed by <a href="http://www.lambandlamp.com">Lamb and Lamp</a> <span class="hidden-sm-down">•</span><span class="hidden-sm-up"><br></span> Developed by <a href="http://michellekondou.me">Michelle Kondou</a>

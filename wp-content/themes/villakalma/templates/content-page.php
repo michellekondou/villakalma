@@ -1,29 +1,32 @@
-<?php if ( !is_page('gallery') ) : ?>
 <?php if( is_page('location') ) : ?>
+<!--LOCATION-->
   <?php
     get_template_part('templates/gmap');
   ?>
-    <?php 
-      $location = get_field('google_maps');
-      if( !empty($location) ):
-    ?>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="acf-map">
- 
-          <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-            <p class="address"><?php echo $location['address']; ?></p>
-          </div>
- 
+  <?php 
+    $location = get_field('google_maps');
+    if( !empty($location) ):
+  ?>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="acf-map">
+
+        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+          <p class="address"><?php echo $location['address']; ?></p>
         </div>
+
       </div>
     </div>
-    <?php endif; ?>
+  </div>
+  <?php endif; ?>
 <?php endif; ?>
-<?php if( !is_page('book-with-us') ) : ?>
+
+<?php if( !is_page('book-with-us') && !is_page('gallery') && !is_page('home') ) : ?>
+<!--ABOUT / ACCOMODATION / LOCATION-->
 <?php
-  $file = get_field('single_image');
-  if( $file ): 
+  $file_desktop = get_field('single_image');
+  $file_mobile = get_field('single_image_mobile');
+  if( $file_desktop || $file_mobile ): 
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -38,7 +41,6 @@
 
 <div class="container">
 <?php
-//PROJECTS
 // check if the flexible content field has rows of data 
 if( have_rows('main_content') ): ?>
 
@@ -80,11 +82,11 @@ if( have_rows('main_content') ): ?>
     </div>
 
     <?php endif; ?>
+
   <?php endwhile; ?>
 <?php endif; ?>
 
 <?php
-//PROJECTS
 // check if the flexible content field has rows of data 
 if( have_rows('extended_content') ): ?>
 <div class="row">
@@ -96,7 +98,7 @@ if( have_rows('extended_content') ): ?>
   aria-expanded="false" 
   aria-controls="collapseContent"
 >
-<?php if(is_page('6')) : ?><!--about page-->
+<?php if(is_page('about')) : ?>
   services &amp; facilities
 <?php else : ?>
   read more
@@ -151,6 +153,7 @@ if( have_rows('extended_content') ): ?>
   </div>
 <?php endif; ?>
 </div>
+
 <?php elseif( is_page('book-with-us') ) : ?>
 <?php
   $file = get_field('single_image');
@@ -212,9 +215,14 @@ if( have_rows('main_content') ): ?>
 </div>
 <?php endif; ?>
 
-<?php endif; ?>
+<?php elseif( is_page('home') ) : ?>
+<!--HOME-->
+<?php
+  get_template_part('templates/gallery-wide');
+?>
+
 <?php elseif( is_page('gallery') ) : ?>
- 
+<!--GALLERY-->
 <div class="gallery-container">
 <?php 
 $images = get_field('gallery');

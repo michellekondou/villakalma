@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "main.js": {
+      "vendor": [
+        "bower_components/flickity/dist/flickity.pkgd.min.js"
+      ],      
       "files": [
         "scripts/main.js"
       ],
@@ -9,6 +12,9 @@
     "main.css": {
       "files": [
         "styles/main.scss"
+      ],
+      "vendor": [
+        "bower_components/flickity/dist/flickity.min.css"
       ],
       "main": true
     },
