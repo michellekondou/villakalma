@@ -19,7 +19,7 @@
   @include rem-fallback(padding-bottom, $basex2);  
 }
 
-@media(max-width: 480px) {
+@media(max-width: 544px) {
   .mite-number {
     display: none;
   }
@@ -40,7 +40,7 @@
   padding: 0; 
 }
 
-@media(max-width: 480px) {
+@media(max-width: 544px) {
   #wpc-weather {
     @include rem-fallback(margin-top, 20);
   }
@@ -89,7 +89,7 @@
   }
 } 
 
-@media(max-width: 480px) {
+@media(max-width: 544px) {
   .credits {
     article + article {
       padding-right: 0;
