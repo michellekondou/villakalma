@@ -19,10 +19,65 @@
   @include rem-fallback(padding-bottom, $basex2);  
 }
 
+@media(max-width: 480px) {
+  .mite-number {
+    display: none;
+  }
+}
+
+/**
+ * Social links 
+ */
 .social-links {
   @include rem-fallback(margin-right, $basex2);
 }
 
+/**
+  * Weather module
+  */ 
+#wpc-weather {
+  margin: 0;
+  padding: 0; 
+}
+
+@media(max-width: 480px) {
+  #wpc-weather {
+    @include rem-fallback(margin-top, 20);
+  }
+}
+
+#wpc-weather .location_name {
+  display: none!important;
+}
+
+#wpc-weather .now {
+  overflow: hidden;
+}
+
+#wpc-weather .time_symbol,
+#wpc-weather .time_temperature {
+  float: right;
+}
+
+#wpc-weather.medium .now .time_symbol svg {
+  margin-bottom: 0;
+}
+
+#wpc-weather.medium .now .time_temperature {
+  @include rem-fallback(font-size, 32);
+  @include rem-fallback(margin-top, 15);
+  @include rem-fallback(margin-left, 15);
+}
+
+#wpc-weather.medium .now .time_symbol svg {
+  fill: $brand-primary;
+  width: 60px;
+  height: 60px;
+}
+
+/**
+ * Credits section
+ */
 .credits {
   border-top: 1px solid $brand-primary;
   @include rem-fallback(padding-top, $base);
@@ -33,3 +88,12 @@
     text-align: right;
   }
 } 
+
+@media(max-width: 480px) {
+  .credits {
+    article + article {
+      padding-right: 0;
+      text-align: left;
+    }
+  }
+}
