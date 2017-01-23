@@ -1,6 +1,11 @@
+/**
+ * Footer
+ */
+
 .content-info {
-  @include rem-fallback(padding-top, 34);
-  @include rem-fallback(padding-bottom, 17);  
+  border-top: 1px solid $brand-primary;
+  @include rem-fallback(padding-top, $basex2);
+  @include rem-fallback(padding-bottom, $base);  
   p {
     @include rem-fallback(font-size, 15);
     @include rem-fallback(margin-bottom, $base);
@@ -14,7 +19,17 @@
   @include rem-fallback(padding-bottom, $basex2);  
 }
 
+.social-links {
+  @include rem-fallback(margin-right, $basex2);
+}
+
 .credits {
-  @include rem-fallback(padding-top, 17);
+  border-top: 1px solid $brand-primary;
+  @include rem-fallback(padding-top, $base);
+  @include rem-fallback(font-size, 11);
   letter-spacing: 0; 
-}    
+  article + article {
+    padding-right: 0;
+    text-align: right;
+  }
+} 

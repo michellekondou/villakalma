@@ -1,96 +1,176 @@
+/**
+ * Navbar
+ */
 
-
-#nav-overlay {
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  left: 0;
+.navbar {
+  padding: 0;
   width: 100%;
-  height: 100%;
-  background: #fff;
-  opacity: 0;
-  transform: opacity;
-  transition: .2s ease-in-out;
-}  
-
-#nav-overlay.open {
-  z-index: 1000;
-  opacity: 0.8;
-}
-
-#nav-icon {
-  width: 40px;
-  height: 30px;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  transform: rotate(0deg);
-  transition: .5s ease-in-out;
-  cursor: pointer;
-}
-
-#nav-icon span {
-  display: block;
-  position: absolute;
-  height: 5px;
-  width: 100%;
-  background: $brand-primary;
-  border-radius: 0px;
   opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: .25s ease-in-out;
+  border-bottom: 1px solid $brand-primary;
+  border-radius: 0;
 }
 
-#nav-icon span:nth-child(1) {
-  top: 0px;
+.navbar-brand {
+  padding: 0;
+  @include rem-fallback(padding-left, 30);
 }
 
-#nav-icon span:nth-child(2),
-#nav-icon span:nth-child(3) {
-  top: 10px;
+.navbar-brand > img {
+    display: block;
+    float: left;
+    vertical-align: bottom;
 }
 
-#nav-icon span:nth-child(2) {
-  background: transparent;
+.navbar-brand > article {
+  @include rem-fallback(margin-left, 30);
 }
 
-#nav-icon.open span:nth-child(2) {
-  background: $brand-primary;
+.navbar-brand h1 {
+  @include rem-fallback(margin-top, 5);
+  @include rem-fallback(margin-bottom, 5);
+  @include rem-fallback(font-size, 15);
+  line-height: 1;
 }
 
-#nav-icon span:nth-child(4) {
-  top: 20px;
+.navbar-brand h2 {
+  @include rem-fallback(font-size, 11);
+  color: #b7b7b7;
+  margin: 0;
 }
 
-#nav-icon.open span:nth-child(1) {
-  top: 10px;
-  width: 0%;
-  left: 50%;
+.navbar-nav {
+  @include rem-fallback(margin-top, 24);
+  float: right;
+  .menu-item {
+    float: left;
+    line-height: 100%;
+     
+  }
+  .menu-item a {      
+    display: block;
+    @include rem-fallback(font-size, 15);
+    @include rem-fallback(padding-top, 15);
+    @include rem-fallback(padding-bottom, 15);
+    letter-spacing: 0;
+    transition: color 0.5s ease;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: $grey-light-hover;
+    }
+  } 
+  .current-menu-item a {
+    color: $grey-light-hover;
+    cursor: default;
+  }    
+  .menu-item a::after {
+    content: '|';
+    display: inline;
+    color: $grey-lighter;
+    @include rem-fallback(padding-left, 15);
+    @include rem-fallback(padding-right, 15);
+  }
+  .menu-item:last-child a::after {
+    content: '';
+    padding: 0;
+  }
+  .menu-item + .menu-item {
+    //margin-left: 1rem;
+  }
 }
 
-#nav-icon.open span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
+@media(max-width: 1139px) {
 
-#nav-icon.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
+  #nav-overlay {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0;
+    transform: opacity;
+    transition: .2s ease-in-out;
+  }  
 
-#nav-icon.open span:nth-child(4) {
-  top: 10px;
-  width: 0%;
-  left: 50%;
-}
+  #nav-overlay.open {
+    z-index: 1000;
+    opacity: 0.8;
+  }
 
-@media(max-width: 1140px) {
- 
+  #nav-icon {
+    width: 40px;
+    height: 30px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: $brand-primary;
+    border-radius: 0px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+  #nav-icon span:nth-child(1) {
+    top: 0px;
+  }
+
+  #nav-icon span:nth-child(2),
+  #nav-icon span:nth-child(3) {
+    top: 10px;
+  }
+
+  #nav-icon span:nth-child(2) {
+    background: transparent;
+  }
+
+  #nav-icon.open span:nth-child(2) {
+    background: $brand-primary;
+  }
+
+  #nav-icon span:nth-child(4) {
+    top: 20px;
+  }
+
+  #nav-icon.open span:nth-child(1) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+  }
+
+  #nav-icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  #nav-icon.open span:nth-child(4) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+  }
+
   .navbar-nav {
     float: none;
     position: fixed;
@@ -104,27 +184,26 @@
       z-index: 1003;
       opacity: 1;
     }
-
     .menu-item {
       float: none;
       line-height: 100%;
       text-align: center;
     }
-
     .menu-item a {
       display: block;
       padding-top:    .425rem;
       padding-bottom: .425rem;
       font-size: 32px;
       line-height: 1.4;
-
       + .menu-item a  {
         margin-left: 0;
       }
     }
-
     .menu-item + .menu-item {
       margin-left: 0;
+    }
+    .menu-item a::after {
+      content: '';
     }
   }
 

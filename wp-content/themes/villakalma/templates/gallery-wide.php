@@ -18,7 +18,7 @@
                 <source srcset="<?php echo $image['sizes']['gallery-wide-l']; ?>" media="(max-width: 991px)">
                 <source srcset="<?php echo $image['sizes']['gallery-wide-xl']; ?>" media="(max-width: 1662px)">
                 <source srcset="<?php echo $image['sizes']['gallery-wide-xxl']; ?>" media="(min-width: 1663px)">
-                <img src="<?php echo $image['sizes']['large']; ?>" alt="alt: <?php echo $image['caption'];  ?>" />
+                <img src="<?php echo $image['sizes']['gallery-wide-l']; ?>" alt="alt: <?php echo $image['caption'];  ?>" />
             </picture>
         <?php if( $file_url ): ?>
         </a>
