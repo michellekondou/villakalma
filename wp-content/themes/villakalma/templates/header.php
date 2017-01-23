@@ -6,7 +6,7 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
-              <svg version="1.1" class="pull-sm-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="195px"
+              <svg version="1.1" class="icon-house pull-sm-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="195px"
                  height="70px" viewBox="0 0 195 70" enable-background="new 0 0 195 70" xml:space="preserve">
               <g id="Layer_1">
                 <path fill="#FFFFFF" d="M94.222,16.298v-5.075c0-0.862-0.673-1.562-1.521-1.611V5.976c0-0.688-0.433-1.275-1.036-1.508V3.505

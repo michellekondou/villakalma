@@ -104,7 +104,7 @@
     width: 40px;
     height: 30px;
     position: fixed;
-    top: 10px;
+    @include rem-fallback(top, $basex2);
     right: 10px;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
@@ -114,7 +114,7 @@
   #nav-icon span {
     display: block;
     position: absolute;
-    height: 5px;
+    height: 3px;
     width: 100%;
     background: $brand-primary;
     border-radius: 0px;
@@ -217,6 +217,49 @@
   #nav-icon {
     display: none;  
   }
+}
+
+/**
+ * Logo and tagline responsive - breakpoint where it starts to look crammed
+ */
+@media(max-width: 695px) {
+
+
+  .banner {
+    margin-top: 17px;  
+  }
+
+  .navbar-brand {
+    margin-bottom: 17px;
+  }
+
+  .icon-house {
+    display: none;
+  }
+
+  .navbar-brand {
+    padding-left: 0;
+  }
+
+  .navbar-brand>article {
+    margin-left: 0;
+  }
+
+}
+
+/**
+ * very small screens
+ */
+@media(max-width: 360px) {
+  
+  .banner {
+    @include rem-fallback(margin-top, $basex2);  
+  }
+
+  #nav-icon {
+    @include rem-fallback(top, 10);    
+  }
+
 }
 
  

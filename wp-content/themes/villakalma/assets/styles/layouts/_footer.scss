@@ -89,6 +89,14 @@
   }
 } 
 
+@media(max-width: 1140px) {
+  .credits {
+    article + article {
+        @include rem-fallback(padding-right, $base);
+    }
+  }
+}
+
 @media(max-width: 544px) {
   .credits {
     article + article {

@@ -324,40 +324,6 @@ div#masonry:hover img:hover {
     transform: rotate(0deg);
 }
 
-#wpc-weather {
-  margin: 0;
-  padding: 0; 
-}
-
-#wpc-weather .location_name {
-  display: none!important;
-}
-
-#wpc-weather .now {
-  overflow: hidden;
-}
-
-#wpc-weather .time_symbol,
-#wpc-weather .time_temperature {
-  float: right;
-}
-
-#wpc-weather.medium .now .time_symbol svg {
-  margin-bottom: 0;
-}
-
-#wpc-weather.medium .now .time_temperature {
-  @include rem-fallback(font-size, 32);
-  @include rem-fallback(margin-top, 15);
-  @include rem-fallback(margin-left, 15);
-}
-
-#wpc-weather.medium .now .time_symbol svg {
-  fill: $brand-primary;
-  width: 60px;
-  height: 60px;
-}
-
 .columns:first-child {
     @include rem-fallback(margin-top, $basex4);
 }
