@@ -114,7 +114,7 @@ function new_map( $el ) {
     mapTypeId : google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
     scaleControl: false,
-    streetViewControl: false,
+    streetViewControl: true,
     overviewMapControl: false,
     minZoom: 2, 
     maxZoom: 16
