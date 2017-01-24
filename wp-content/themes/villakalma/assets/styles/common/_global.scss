@@ -225,6 +225,17 @@ div#masonry:hover img:hover {
   max-width: 280px;
 }
 
+.js .grid-item .preload {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.js .grid-item .preload.loaded {
+  visibility: visible;
+  opacity: 1; 
+}
+
 @media(max-width: 1199px) { 
   .grid-item--width2  {
     width: 25%;
@@ -291,6 +302,8 @@ div#masonry:hover img:hover {
     max-width: 575px;
  }
 }
+
+
  
 .btn.extended-content {
   margin: 0 auto;
@@ -541,6 +554,16 @@ div#masonry:hover img:hover {
 
 .no-js .loader-slow {
   display: none;
+}
+
+.js .gallery-container .loader-slow {
+  visibility: none;
+}
+
+
+.js .is-loading.gallery-container .loader-slow {
+  visibility: visible;
+  top: 10%;
 }
 
 

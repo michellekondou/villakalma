@@ -45,7 +45,10 @@
           percentPosition: true
         });
         // layout Packery after each image loads
-        $grid.imagesLoaded().progress( function() {
+        $grid.imagesLoaded().progress( function( instance, image ) {
+           
+          $(image.img).addClass('loaded');
+          console.log(image);
           $grid.packery();
         });
         //----Start PhotoSwipe
@@ -84,16 +87,16 @@
     }
 
     galleryItems.push({
-    src: $el.attr('href'),
-    w: parseInt(size[0], 10),
-    h: parseInt(size[1], 10),
-    title: caption,
-    msrc: $el.find('img').attr('src'),
-    el: $el
-    });
-    if( el === $el.get(0) ) {
-    index = i;
-    }
+      src: $el.attr('href'),
+      w: parseInt(size[0], 10),
+      h: parseInt(size[1], 10),
+      title: caption,
+      msrc: $el.find('img').attr('src'),
+      el: $el
+      });
+      if( el === $el.get(0) ) {
+      index = i;
+      }
     });
 
     return [galleryItems, parseInt(index, 10)];
@@ -230,7 +233,6 @@
         })
         .progress( function( instance, image ) {
           var $item = $( image.img ).parent();
-          console.log($item);
           $item.removeClass('is-loading');
           $('.loader').addClass('none');
           if ( !image.isLoaded ) {

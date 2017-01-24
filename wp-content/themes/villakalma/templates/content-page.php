@@ -228,6 +228,7 @@ if( have_rows('extended_content') ): ?>
 <?php elseif( is_page('gallery') ) : ?>
 <!--GALLERY-->
 <div class="gallery-container">
+<img src="/wp-content/themes/villakalma/dist/images/loader.gif" class="loader-slow">
 <?php 
 $images = get_field('gallery');
 if( $images ): 
@@ -236,7 +237,7 @@ if( $images ):
   <?php foreach( $images as $image ): ?>
     <div class="grid-item grid-item--width2 grid-item--width3 grid-item--width4">
       <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>">
-        <img src="<?php if($image['width'] > $image['height']){ echo $image['sizes']['gallery-lg-ls']; } else { echo $image['sizes']['gallery-lg-pt']; } ?>" alt="<?php echo $image['caption']; ?>" />
+        <img src="<?php if($image['width'] > $image['height']){ echo $image['sizes']['gallery-lg-ls']; } else { echo $image['sizes']['gallery-lg-pt']; } ?>" alt="<?php echo $image['caption']; ?>" class="preload" />
       </a>
     </div>
   <?php endforeach; ?>
