@@ -561,26 +561,18 @@ div#masonry:hover img:hover {
 }
 
 .js .preload {
-  display: none;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 600ms, visibility 600ms;
-}
-
-.js .preload.single-img {
-   display: block;
-   visibility: hidden;
+  transition: opacity 1s linear;
 }
 
 .js .loaded {
-  display: block;
+  visibility: visible;
   opacity: 1;
 }
-
-.js .loaded.single-img {
-  visibility: visible;
+.gallery-wide .gallery-cell {
+  position: absolute;
 }
-
-
 .no-js .gallery-wide .gallery-cell:nth-child(2) {
   display: none; 
 }

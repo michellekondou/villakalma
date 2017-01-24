@@ -208,7 +208,7 @@
         touchVerticalScroll: true,
         setGallerySize: true,
         lazyLoad: true,
-        autoPlay: 3000
+        autoPlay: 5000
       });
 
       //imagesloaded
@@ -220,7 +220,7 @@
         })
         .done( function( instance ) {
           var $item = $('.image-container img');
-          $item.removeClass('preload');
+          //$item.removeClass('preload');
           $item.addClass('loaded');
           $('.main-image').css('min-height', 'auto');
           console.log('all images successfully loaded');

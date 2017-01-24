@@ -2,7 +2,7 @@
 
 .acf-map {
   width: 100%;
-  height: 705px;
+  height: 642px;
   /*border: #ccc solid 1px;*/
 /*  margin: 20px 0;*/
 }
@@ -29,7 +29,7 @@
 }
 @media (min-width: 1140px) {
   .acf-map {
-    height: 705px;
+    height: 642px;
   }
 }
 
