@@ -46,7 +46,7 @@
         });
         // layout Packery after each image loads
         $grid.imagesLoaded().progress( function( instance, image ) {
-           
+
           $(image.img).addClass('loaded');
           console.log(image);
           $grid.packery();
@@ -128,7 +128,7 @@
     // showAnimationDuration: 150,
     // hideAnimationDuration: 150,
     bgOpacity: 0.8,
-    shareEl: false,
+    shareEl: true,
     // spacing: 0.12,
     // allowPanToNext: true,
     // maxSpreadZoom: 2,
