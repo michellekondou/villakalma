@@ -113,6 +113,7 @@ add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
  */
 add_image_size( 'gallery-lg-ls', 548, 411, array( 'center', 'center' ) ); // (cropped)
 add_image_size( 'gallery-lg-pt', 548, 730, array( 'center', 'center' ) ); // (cropped)
+add_image_size( 'gallery-ipad-pt', 768, 573, array( 'center', 'center' ) ); // (cropped)
 add_image_size( 'gallery-wide-xxl', 1920, 741, array( 'center', 'center' ) ); // (cropped)
 add_image_size( 'gallery-wide-xl', 1662, 642, array( 'center', 'center' ) ); // (cropped)
 add_image_size( 'gallery-wide-l', 1141, 440, array( 'center', 'center' ) ); // (cropped)
@@ -122,6 +123,7 @@ function custom_thumb_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'gallery-lg-ls' => __( 'Gallery Large Landscape' ),
         'gallery-lg-pt' => __( 'Gallery Large Portrait' ),
+        'gallery-ipad-pt' => __( 'Gallery iPad Portrait' ),
         'gallery-wide-xxl' => __( 'Gallery Wide XXL' ),
         'gallery-wide-xl' => __( 'Gallery Wide XL' ),
         'gallery-wide-l' => __( 'Gallery Wide L' )

@@ -219,6 +219,10 @@
           console.log('all images loaded');
         })
         .done( function( instance ) {
+          var $item = $('.image-container img');
+          $item.removeClass('preload');
+          $item.addClass('loaded');
+          $('.main-image').css('min-height', 'auto');
           console.log('all images successfully loaded');
         })
         .fail( function() {

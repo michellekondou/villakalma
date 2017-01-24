@@ -116,6 +116,18 @@ img {
   border-bottom: 1px solid $brand-primary;
 }
 
+@media screen and (max-width: 992px) {
+  .main-image {
+    min-height: 240px;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .main-image {
+    min-height: 377px;
+  }
+}
+
 .main-image img {
 
 }
@@ -496,7 +508,7 @@ div#masonry:hover img:hover {
   position: relative;
 }
 
-.loader {
+.js .loader {
   display: none;
   position: absolute;
   z-index: 100; 
@@ -506,7 +518,7 @@ div#masonry:hover img:hover {
 }
 
 .no-js .loader {
-
+  display: none;
 }
 
 .is-loading {
@@ -517,15 +529,60 @@ div#masonry:hover img:hover {
   display: block;
 }
 
+.js .loader-slow {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: 0; 
+  top: 50%;
+  left: 50%;
+  margin: -30px 0 0 -30px;
+}
+
+.no-js .loader-slow {
+  display: none;
+}
+
 
 
 /* carousel height, as percentage of width */
-.gallery-wide {
+.gallery-wide { 
   padding-bottom: 38.6%;
 }
 
+@media screen and (max-width: 768px) {
+  .gallery-wide { 
+    padding-bottom: 74.6%;
+  }
+}
+
 .no-js .gallery-wide {
-  // display: none;
+  padding-bottom: 0;
+}
+
+.js .preload {
+  display: none;
+  opacity: 0;
+  transition: opacity 600ms, visibility 600ms;
+}
+
+.js .preload.single-img {
+   display: block;
+   visibility: hidden;
+}
+
+.js .loaded {
+  display: block;
+  opacity: 1;
+}
+
+.js .loaded.single-img {
+  visibility: visible;
+}
+
+
+.no-js .gallery-wide .gallery-cell:nth-child(2) {
+  display: none; 
 }
 
 
