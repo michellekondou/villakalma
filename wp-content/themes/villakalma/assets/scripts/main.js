@@ -197,7 +197,7 @@
       });
 
       //flickity
-      $('.gallery-wide').flickity({
+      $('.js .gallery-wide').flickity({
          // options
         cellAlign: 'left',
         selectedAttraction: 0.23,
@@ -209,6 +209,32 @@
         setGallerySize: true,
         lazyLoad: true,
         autoPlay: 3000
+      });
+
+      //imagesloaded
+      var $container = $('.image-container');
+
+      $container.imagesLoaded()
+        .always( function( instance ) {
+          console.log('all images loaded');
+        })
+        .done( function( instance ) {
+          console.log('all images successfully loaded');
+        })
+        .fail( function() {
+          console.log('all images loaded, at least one is broken');
+        })
+        .progress( function( instance, image ) {
+          var $item = $( image.img ).parent();
+          console.log($item);
+          $item.removeClass('is-loading');
+          $('.loader').addClass('none');
+          if ( !image.isLoaded ) {
+            $item.addClass('is-broken');
+          }
+          var result = image.isLoaded ? 'loaded' : 'broken';
+          console.log( 'image is ' + result + ' for ' + image.img.src );
+          //console.log( 'image is ' + result + ' for ' + image.img.src );
       });
 
     }//end events

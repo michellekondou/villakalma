@@ -100,8 +100,11 @@ function assets() {
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
+  wp_enqueue_script('sage/modernizr', Assets\asset_path('scripts/modernizr-custom.js'), [], null, false);
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+
+
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 
