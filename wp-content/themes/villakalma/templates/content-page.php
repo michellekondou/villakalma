@@ -35,7 +35,7 @@
     <figure class="main-image">
       <picture class="is-loading">
         <source srcset="<?php echo $file_desktop['sizes']['gallery-lg-ls']; ?>" media="(max-width: 480px)">
-        <source srcset="<?php echo $image['sizes']['gallery-ipad-pt']; ?>" media="(max-width: 768px)">
+        <source srcset="<?php echo $file_desktop['sizes']['gallery-ipad-pt']; ?>" media="(max-width: 768px)">
         <source srcset="<?php echo $file_desktop['sizes']['gallery-wide-xl']; ?>" media="(max-width: 992px)">
         <source srcset="<?php echo $file_desktop['sizes']['gallery-wide-xl']; ?>" media="(max-width: 1662px)">
         <source srcset="<?php echo $file_desktop['sizes']['gallery-wide-xxl']; ?>" media="(min-width: 1663px)">
