@@ -645,6 +645,19 @@ div#masonry:hover img:hover {
   content: '';
 }
 
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid $grey-lighter;
+  opacity: 1;
+}
+
+.flickity-page-dots .dot.is-selected {
+  background: $brand-primary;
+  border: 1px solid $brand-primary;
+}
+
 /**
  * Photoswipe
  */
