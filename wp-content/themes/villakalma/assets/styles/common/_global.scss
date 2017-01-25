@@ -315,6 +315,10 @@ div#masonry:hover img:hover {
   letter-spacing: 1px;  
 }
 
+.btn.extended-content.dark {
+  background: $brand-primary;
+}
+
 .btn.extended-content:focus {
   background: $grey-light;
   outline: 0px auto $grey-light;
@@ -334,6 +338,18 @@ div#masonry:hover img:hover {
   color: $brand-primary;
   outline: 0px auto $brand-primary;
   outline-offset: 0px;  
+}
+
+#photoswipe-btn {
+  position: absolute;
+  @include rem-fallback(bottom, 40);
+  left: 50%;
+  margin-left: -66px;
+  z-index: 100;
+}
+
+.accommodation .photoswipe {
+  display: none;
 }
 
 .arrow {
@@ -635,3 +651,4 @@ div#masonry:hover img:hover {
 .pswp__bg {
 
 }
+

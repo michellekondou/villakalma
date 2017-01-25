@@ -22,7 +22,7 @@
 <?php endif; ?>
 
 <?php if( !is_page('book-with-us') && !is_page('gallery') && !is_page('home') ) : ?>
-<!--ABOUT / ACCOMODATION / LOCATION-->
+<!--ABOUT / ACCOMMODATION / LOCATION-->
 <?php
   $file_desktop = get_field('single_image');
   $file_mobile = get_field('single_image_mobile');
@@ -32,6 +32,14 @@
 <div class="container-fluid">
   <div class="row image-container">
   <img src="/wp-content/themes/villakalma/dist/images/loader.gif" class="loader-slow">
+  <?php if( is_page('accommodation') ) : ?>
+  <?php 
+    $images = get_field('gallery');
+    if( $images ): 
+    ?>
+  <button id="photoswipe-btn" class="btn btn-primary extended-content dark">view photos</button>
+  <?php endif; ?>
+  <?php endif; ?>
     <figure class="main-image">
       <picture class="is-loading">
         <source srcset="<?php echo $file_desktop['sizes']['gallery-lg-ls']; ?>" media="(max-width: 480px)">
@@ -45,7 +53,22 @@
   </div>
 </div>
 <?php endif; ?>
+<?php if( is_page('accommodation') ) : ?>
 
+<?php 
+$images = get_field('gallery');
+if( $images ): 
+?>
+<div class="photoswipe">
+<?php foreach( $images as $image ): ?>
+  <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>">
+    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['caption']; ?>" class="preload">
+  </a>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php endif; //page is accommodation?>
 <div class="container">
 <?php
 // check if the flexible content field has rows of data 

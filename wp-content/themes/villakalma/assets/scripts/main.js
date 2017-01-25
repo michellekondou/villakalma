@@ -51,109 +51,224 @@
           console.log(image);
           $grid.packery();
         });
+
         //----Start PhotoSwipe
-    var PhotoSwipe = window.PhotoSwipe,
-    PhotoSwipeUI_Default = window.PhotoSwipeUI_Default;
+        var PhotoSwipe = window.PhotoSwipe,
+        PhotoSwipeUI_Default = window.PhotoSwipeUI_Default;
 
-    $('body').on('click', 'a[data-size]', function(e) {
-      
-      if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
-        return;
+        $('body').on('click', 'a[data-size]', function(e) {
+          
+          if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
+            return;
+          }
+
+          e.preventDefault();
+          openPhotoSwipe( this );
+
+        });
+
+        var parseThumbnailElements = function(gallery, el) {
+          var 
+            elements = $(gallery).find('a[data-size]').has('img'),
+            galleryItems = [],
+            index;
+
+          elements.each(function(i) {
+            var 
+              $el = $(this),
+              size = $el.data('size').split('x'),
+              caption;
+
+            if( $el.next().is('.wp-caption-text') ) {
+              // image with caption
+              caption = $el.next().text();
+            } else if( $el.parent().next().is('.wp-caption-text') ) {
+              // gallery icon with caption
+              caption = $el.parent().next().text();
+            } else {
+              caption = $el.attr('title');
+            }
+
+            galleryItems.push({
+              src: $el.attr('href'),
+              w: parseInt(size[0], 10),
+              h: parseInt(size[1], 10),
+              title: caption,
+              msrc: $el.find('img').attr('src'),
+              el: $el
+            });
+
+            if( el === $el.get(0) ) {
+              index = i;
+            }
+
+          });
+
+        return [galleryItems, parseInt(index, 10)];
+      }; // parseThumbnailElements
+
+      var openPhotoSwipe = function( element, disableAnimation ) {
+        var 
+          pswpElement = $('.pswp').get(0),
+          galleryElement = $(element).parents('.photoswipe, .hentry, .main, body').first(),
+          gallery,
+          options,
+          items, 
+          index;
+
+          items = parseThumbnailElements(galleryElement, element);
+          index = items[1];
+          items = items[0];
+
+        options = {
+          index: index,
+          getThumbBoundsFn: function(index) {
+            var image = items[index].el.find('img'),
+            offset = image.offset();
+            return {x:offset.left, y:offset.top, w:image.width()};
+          },
+          showHideOpacity: true,
+          history: false,
+          captionEl: true,
+          // showHideOpacity: false,
+          // showAnimationDuration: 150,
+          // hideAnimationDuration: 150,
+          bgOpacity: 0.8,
+          shareEl: true,
+          // spacing: 0.12,
+          // allowPanToNext: true,
+          // maxSpreadZoom: 2,
+          // loop: 1,
+          pinchToClose: true,
+          closeOnScroll: true,
+          // closeOnVerticalDrag: true,
+          escKey: true,
+          arrowKeys: true,
+          zoomEl: false
+
+        };
+
+        if(disableAnimation) {
+          options.showAnimationDuration = 0;
+        }
+
+        // Pass data to PhotoSwipe and initialize it
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+      };
+
+      //----End PhotoSwipe
       }
-
-      e.preventDefault();
-      openPhotoSwipe( this );
-
-    });
-
-    var parseThumbnailElements = function(gallery, el) {
-    var elements = $(gallery).find('a[data-size]').has('img'),
-    galleryItems = [],
-    index;
-
-    elements.each(function(i) {
-    var $el = $(this),
-    size = $el.data('size').split('x'),
-    caption;
-
-    if( $el.next().is('.wp-caption-text') ) {
-    // image with caption
-    caption = $el.next().text();
-    } else if( $el.parent().next().is('.wp-caption-text') ) {
-    // gallery icon with caption
-    caption = $el.parent().next().text();
-    } else {
-    caption = $el.attr('title');
-    }
-
-    galleryItems.push({
-      src: $el.attr('href'),
-      w: parseInt(size[0], 10),
-      h: parseInt(size[1], 10),
-      title: caption,
-      msrc: $el.find('img').attr('src'),
-      el: $el
-      });
-      if( el === $el.get(0) ) {
-      index = i;
-      }
-    });
-
-    return [galleryItems, parseInt(index, 10)];
-    };
-
-    var openPhotoSwipe = function( element, disableAnimation ) {
-    var pswpElement = $('.pswp').get(0),
-    galleryElement = $(element).parents('.photoswipe, .hentry, .main, body').first(),
-    gallery,
-    options,
-    items, index;
-
-    items = parseThumbnailElements(galleryElement, element);
-    index = items[1];
-    items = items[0];
-
-    options = {
-    index: index,
-    getThumbBoundsFn: function(index) {
-    var image = items[index].el.find('img'),
-      offset = image.offset();
-
-    return {x:offset.left, y:offset.top, w:image.width()};
     },
-    showHideOpacity: true,
-    history: false,
-    captionEl: true,
-    // showHideOpacity: false,
-    // showAnimationDuration: 150,
-    // hideAnimationDuration: 150,
-    bgOpacity: 0.8,
-    shareEl: true,
-    // spacing: 0.12,
-    // allowPanToNext: true,
-    // maxSpreadZoom: 2,
-    // loop: 1,
-    pinchToClose: true,
-    closeOnScroll: true,
-    // closeOnVerticalDrag: true,
-    escKey: true,
-    arrowKeys: true,
-    zoomEl: false
+    'accommodation': {
+      init: function() {
 
-    };
+        //----Start PhotoSwipe
+        var PhotoSwipe = window.PhotoSwipe,
+        PhotoSwipeUI_Default = window.PhotoSwipeUI_Default;
 
-    if(disableAnimation) {
-    options.showAnimationDuration = 0;
-    }
+        $('#photoswipe-btn').on('click', function(e) {
+          
+          if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
+            return;
+          }
 
-    // Pass data to PhotoSwipe and initialize it
-    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-    };
+          e.preventDefault();
+          openPhotoSwipe( this );
 
-//----End PhotoSwipe
-      }
-    }
+        });
+
+        var parseThumbnailElements = function(gallery, el) {
+          var 
+            elements = $(gallery).find('a[data-size]').has('img'),
+            galleryItems = [],
+            index;
+
+          elements.each(function(i) {
+            var 
+              $el = $(this),
+              size = $el.data('size').split('x'),
+              caption;
+
+            if( $el.next().is('.wp-caption-text') ) {
+              // image with caption
+              caption = $el.next().text();
+            } else if( $el.parent().next().is('.wp-caption-text') ) {
+              // gallery icon with caption
+              caption = $el.parent().next().text();
+            } else {
+              caption = $el.attr('title');
+            }
+
+            galleryItems.push({
+              src: $el.attr('href'),
+              w: parseInt(size[0], 10),
+              h: parseInt(size[1], 10),
+              title: caption,
+              msrc: $el.find('img').attr('src'),
+              el: $el
+            });
+
+            if( el === $el.get(0) ) {
+              index = i;
+            }
+
+          });
+
+        return [galleryItems, parseInt(index, 10)];
+      }; // parseThumbnailElements
+
+      var openPhotoSwipe = function( element, disableAnimation ) {
+        var 
+          pswpElement = $('.pswp').get(0),
+          galleryElement = $(element).parents('.photoswipe, .hentry, .main, body').first(),
+          gallery,
+          options,
+          items, 
+          index;
+
+          items = parseThumbnailElements(galleryElement, element);
+          index = items[1];
+          items = items[0];
+
+        options = {
+          index: index,
+          getThumbBoundsFn: function(index) {
+            var image = items[index].el.find('img'),
+            offset = image.offset();
+            return {x:offset.left, y:offset.top, w:image.width()};
+          },
+          showHideOpacity: true,
+          history: false,
+          captionEl: true,
+          // showHideOpacity: false,
+          // showAnimationDuration: 150,
+          // hideAnimationDuration: 150,
+          bgOpacity: 0.8,
+          shareEl: true,
+          // spacing: 0.12,
+          // allowPanToNext: true,
+          // maxSpreadZoom: 2,
+          // loop: 1,
+          pinchToClose: true,
+          closeOnScroll: true,
+          // closeOnVerticalDrag: true,
+          escKey: true,
+          arrowKeys: true,
+          zoomEl: false
+
+        };
+
+        if(disableAnimation) {
+          options.showAnimationDuration = 0;
+        }
+
+        // Pass data to PhotoSwipe and initialize it
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+      };
+      } //end init function
+    } //end accommodation object
   };
 
   // The routing fires all common scripts, followed by the page specific scripts.
