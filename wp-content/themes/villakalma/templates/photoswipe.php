@@ -49,11 +49,11 @@
             </div>
 
             <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-              <i class="icon-left-open-big">&#xe801;</i>
+              <!-- <i class="icon-left-open-big">&#xe801;</i> -->
             </button>
 
             <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-              <i class="icon-right-open-big">&#xe800;</i>
+              <!-- <i class="icon-right-open-big">&#xe800;</i> -->
             </button>
 
             <div class="pswp__caption">
