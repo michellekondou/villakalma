@@ -63,6 +63,9 @@ if( $images ):
 <?php foreach( $images as $image ): ?>
   <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>">
     <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['caption']; ?>" class="preload">
+    <span class="caption">
+      <p><?php echo $image['caption']; ?></p>
+    </span>
   </a>
 <?php endforeach; ?>
 </div>
