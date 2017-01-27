@@ -714,6 +714,11 @@ div#masonry:hover img:hover {
     background-color: rgba(255,255,255,0.8);
 }
 
+.pswp__caption__center {
+  text-align: center;
+  max-width: 90%;
+}
+
 .pswp__counter,
 .pswp__caption__center,
 .pswp__caption small {
