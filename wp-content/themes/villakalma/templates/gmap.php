@@ -117,7 +117,7 @@ function new_map( $el ) {
     streetViewControl: true,
     overviewMapControl: false,
     minZoom: 2, 
-    maxZoom: 16
+    maxZoom: 15
     //zoomControl: false,
   };
 
@@ -218,14 +218,14 @@ function new_map( $el ) {
               "lightness": 80
           }
       ]
-  },
-  {
-    featureType: "all",
-    elementType: "labels",
-    stylers: [
-      { visibility: "on" }
-    ]
-  }
+  }//,
+  // {
+  //   featureType: "all",
+  //   elementType: "labels",
+  //   stylers: [
+  //     { visibility: "off" }
+  //   ]
+  // }
 
   ];
   
