@@ -383,7 +383,7 @@ function center_map( map ) {
   {
     // set center of map
       map.setCenter( bounds.getCenter() );
-      map.setZoom( 14 );
+      map.setZoom( 15 );
   }
   else
   {
