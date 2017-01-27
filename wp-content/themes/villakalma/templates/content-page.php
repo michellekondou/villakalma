@@ -62,7 +62,7 @@ if( $images ):
 <div class="photoswipe">
 <?php foreach( $images as $image ): ?>
   <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>">
-    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['caption']; ?>" class="preload">
+    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['caption']; ?>"  title="<?php echo $image['caption']; ?>" class="preload">
     <span class="caption">
       <p><?php echo $image['caption']; ?></p>
     </span>
@@ -263,7 +263,7 @@ if( $images ):
   <?php foreach( $images as $image ): ?>
     <div class="grid-item grid-item--width2 grid-item--width3 grid-item--width4">
       <a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>">
-        <img src="<?php if($image['width'] > $image['height']){ echo $image['sizes']['gallery-lg-ls']; } else { echo $image['sizes']['gallery-lg-pt']; } ?>" alt="<?php echo $image['caption']; ?>" class="preload" />
+        <img src="<?php if($image['width'] > $image['height']){ echo $image['sizes']['gallery-lg-ls']; } else { echo $image['sizes']['gallery-lg-pt']; } ?>" alt="<?php echo $image['caption']; ?>" class="preload" title="<?php echo $image['caption']; ?>" />
         <span class="caption">
           <p><?php echo $image['caption']; ?></p>
         </span>
