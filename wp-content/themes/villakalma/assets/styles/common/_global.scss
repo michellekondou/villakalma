@@ -518,7 +518,47 @@ div#masonry:hover img:hover {
 
 .background-image {
   width: 100%;
-  height: 734px; 
+  height: 642px; 
+}
+
+@media (min-width: 1920px) {
+  .background-image {
+    width: 100%;
+    height: 734px; 
+  }
+  .gform_wrapper {
+    margin-top: 22%!important;
+  }
+}
+
+@media (min-width:1680px) {
+  .background-image {
+    width: 100%;
+    height: 642px; 
+  }
+  .gform_wrapper {
+    margin-top: 22%!important;
+  }
+}
+
+@media (min-width:1366px) {
+  .background-image {
+    width: 100%;
+    height: 528px; 
+  }
+  .gform_wrapper {
+    margin-top: 8%!important;
+  }
+}
+
+@media (min-width:1280px) {
+  .background-image {
+    width: 100%;
+    height: 495px; 
+  }
+  .gform_wrapper {
+    margin-top: 5%!important;
+  }
 }
  
  
