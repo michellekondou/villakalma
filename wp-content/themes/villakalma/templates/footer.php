@@ -40,11 +40,11 @@
   <div class="credits">
     <div class="container">
       <div class="row">
-        <article class="col-xs-12 col-sm-6">
+        <article class="col-xs-12 col-lg-6">
         Villa Kalma <?php echo current_time('Y'); ?> 
         </article>
-        <article class="col-xs-12 col-sm-6">
-        Website designed by <a href="http://www.lambandlamp.com">Lamb and Lamp</a> <span class="hidden-sm-down">•</span><span class="hidden-md-up"><br></span> Developed by <a href="http://michellekondou.me">Michelle Kondou</a>
+        <article class="col-xs-12 col-lg-6">
+        Website designed by <a href="http://www.lambandlamp.com">Lamb and Lamp</a> <span class="hidden-lg-down">•</span><span class="hidden-lg-up"><br></span> Developed by <a href="http://michellekondou.me">Michelle Kondou</a>
         </article>
       </div>
     </div>

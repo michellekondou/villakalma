@@ -19,11 +19,11 @@
   @include rem-fallback(padding-bottom, $basex2);  
 }
 
-@media(max-width: 544px) {
+@media(max-width: 768px) {
   .mite-number {
     display: none;
   }
-  
+
   .wp-admin .mite-number {
     display: block;
   }
@@ -101,7 +101,7 @@
   }
 }
 
-@media(max-width: 544px) {
+@media(max-width: 992px) {
   .credits {
     article + article {
       padding-right: 0;

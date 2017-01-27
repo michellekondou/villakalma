@@ -104,7 +104,7 @@
     width: 40px;
     height: 30px;
     position: fixed;
-    @include rem-fallback(top, $basex2);
+    @include rem-fallback(top, 56);
     right: 10px;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
@@ -245,6 +245,10 @@
     margin-left: 0;
   }
 
+  #nav-icon {
+    @include rem-fallback(top, $basex2);
+  }
+
 }
 
 /**
@@ -252,15 +256,20 @@
  */
 @media(max-width: 360px) {
   
-  .banner {
-    @include rem-fallback(margin-top, $basex2);  
+  .navbar-brand {
+    h2{
+      @include rem-fallback(font-size, 10);
+      color: #b7b7b7;
+      margin: 0;
+    }
   }
 
-  #nav-icon {
-    @include rem-fallback(top, 10);    
-  }
+  // .banner {
+  //   @include rem-fallback(margin-top, $basex2);  
+  // }
+
+  // #nav-icon {
+  //   @include rem-fallback(top, 10);    
+  // }
 
 }
-
- 
-
