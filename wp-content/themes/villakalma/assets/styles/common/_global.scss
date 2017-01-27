@@ -662,6 +662,16 @@ div#masonry:hover img:hover {
  * Photoswipe
  */
 .pswp__bg {
+  background-color: #fff;
+  opacity: 1;
+}
 
+.pswp__caption, 
+.pswp__top-bar {
+    background-color: #fff;
+}
+
+.pswp__counter {
+  color: $brand-primary;
 }
 
