@@ -48,7 +48,7 @@
         $grid.imagesLoaded().progress( function( instance, image ) {
 
           $(image.img).addClass('loaded');
-          console.log(image);
+      
           $grid.packery();
         });
 
@@ -87,7 +87,7 @@
               caption = $el.parent().next().text();
             } else {
               caption = $el.attr('title');
-            }
+            }         
 
             galleryItems.push({
               src: $el.attr('href'),
@@ -155,6 +155,7 @@
         // Pass data to PhotoSwipe and initialize it
         gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.init();
+
       };
 
       //----End PhotoSwipe
