@@ -10,7 +10,7 @@ use Roots\Sage\Wrapper;
   <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
   <?php
-    get_template_part('templates/analyticstracking.php');
+    get_template_part('templates/analyticstracking');
   ?>
     <!--[if IE]>
       <div class="alert alert-warning">
