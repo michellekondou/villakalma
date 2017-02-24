@@ -335,33 +335,73 @@
       //imagesloaded
       var $container = $('.image-container');
 
-      $container.imagesLoaded()
-        .always( function( instance ) {
-          console.log('all images loaded');
-        })
-        .done( function( instance ) {
-          var $item = $('.image-container img');
-          //$item.removeClass('preload');
-          $item.addClass('loaded');
-          $('.main-image').css('min-height', 'auto');
-          console.log('all images successfully loaded');
-        })
-        .fail( function() {
-          console.log('all images loaded, at least one is broken');
-        })
-        .progress( function( instance, image ) {
-          var $item = $( image.img ).parent();
-          $item.removeClass('is-loading');
-          $('.loader').addClass('none');
-          if ( !image.isLoaded ) {
-            $item.addClass('is-broken');
-            setTimeout(function(){ $item.addClass('loaded'); }, 4000);
-            setTimeout(function(){ $('.image-container img').addClass('loaded'); }, 4000);
+      // $container.imagesLoaded()
+      //   .always( function( instance ) {
+      //     console.log('all images loaded');
+      //   })
+      //   .done( function( instance ) {
+      //     var $item = $('.image-container img');
+      //     //$item.removeClass('preload');
+      //     $item.addClass('loaded');
+      //     $('.main-image').css('min-height', 'auto');
+      //     console.log('all images successfully loaded');
+      //   })
+      //   .fail( function() {
+      //     console.log('all images loaded, at least one is broken');
+      //   })
+      //   .progress( function( instance, image ) {
+      //     var $item = $( image.img ).parent();
+      //     $item.removeClass('is-loading');
+      //     $('.loader').addClass('none');
+      //     if ( !image.isLoaded ) {
+      //       $item.addClass('is-broken');
+      //       setTimeout(function(){ $item.addClass('loaded'); }, 4000);
+      //       setTimeout(function(){ $('.image-container img').addClass('loaded'); }, 4000);
+      //     }
+      //     var result = image.isLoaded ? 'loaded' : 'broken';
+      //     console.log( 'image is ' + result + ' for ', image.img);
+      //     //console.log( 'image is ' + result + ' for ' + image.img.src );
+      //   });
+
+
+
+          function waitForComputedSrcset (images, timeout, $dfd) {
+              $dfd = $dfd || $.Deferred();
+              console.log('waitForComputedSrcset');
+              var computed = 0,
+                  length = images.length;
+
+              for (var i = 0; i < length; i++) {
+                  if (images[i].hasOwnProperty('currentSrc') && !! !images[i].currentSrc) {
+                      window.setTimeout(this.waitForComputedSrcset.bind(this, images, timeout, $dfd), timeout);
+                      return $dfd;
+                  }
+                  computed++;
+              }
+              return (length === computed) ? $dfd.resolve(images) : $dfd;
           }
-          var result = image.isLoaded ? 'loaded' : 'broken';
-          console.log( 'image is ' + result + ' for ', image.img);
-          //console.log( 'image is ' + result + ' for ' + image.img.src );
-        });
+
+          var images = document.getElementsByTagName('img');
+
+          $.when(waitForComputedSrcset(images, 50))
+            .done(function(computedImages){
+            
+            var length = images.length; 
+              for (var i = 0; i < length; i++) {
+               if (images[i].hasOwnProperty('currentSrc') && !! !images[i].currentSrc) {
+                images[i].src = images[i].currentSrc;
+             }
+            }
+            
+            console.info('imagesComputed', computedImages);
+            imagesLoaded(images, function(instance){
+              var $item = $('.image-container img');
+              var $item_parent = $( $item ).parent();
+              $item.addClass('loaded');
+              $item_parent.addClass('loaded');
+              console.info('imagesLoaded', instance);
+            });
+          });
 
    
 
