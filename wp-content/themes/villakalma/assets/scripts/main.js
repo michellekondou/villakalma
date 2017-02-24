@@ -395,7 +395,7 @@
               console.info('imagesComputed', computedImages);
                     $container.imagesLoaded()
                       .always( function( instance ) {
-                        console.log('all images loaded');
+                        console.log('all images loaded ??');
                       })
                       .done( function( instance ) {
                         var $item = $('.image-container img');
