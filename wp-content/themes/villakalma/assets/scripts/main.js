@@ -354,8 +354,9 @@
           $item.removeClass('is-loading');
           $('.loader').addClass('none');
           if ( !image.isLoaded ) {
-            $item.addClass('is-broken loaded');
-            $('.image-container img').addClass('loaded');
+            $item.addClass('is-broken');
+            setTimeout(function(){ $item.addClass('loaded'); }, 2000);
+            setTimeout(function(){ $('.image-container img').addClass('loaded'); }, 2000);
           }
           var result = image.isLoaded ? 'loaded' : 'broken';
           console.log( 'image is ' + result + ' for ', image.img);
