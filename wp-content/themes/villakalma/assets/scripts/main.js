@@ -316,19 +316,21 @@
       });
 
       //flickity
-      $('.js .gallery-wide').flickity({
-         // options
-        cellAlign: 'left',
-        selectedAttraction: 0.23,
-        friction: 1,
-        wrapAround: true,
-        imagesLoaded: true,
-        resize: true,
-        touchVerticalScroll: true,
-        setGallerySize: true,
-        lazyLoad: true,
-        autoPlay: 5000
-      });
+      $(window).load(function () {
+        $('.js .gallery-wide').flickity({
+           // options
+          cellAlign: 'left',
+          selectedAttraction: 0.23,
+          friction: 1,
+          wrapAround: true,
+          imagesLoaded: true,
+          resize: true,
+          touchVerticalScroll: true,
+          setGallerySize: true,
+          lazyLoad: true,
+          autoPlay: 5000
+        });
+
 
       //imagesloaded
       var $container = $('.image-container');
@@ -357,6 +359,8 @@
           var result = image.isLoaded ? 'loaded' : 'broken';
           console.log( 'image is ' + result + ' for ' + image.img.src );
           //console.log( 'image is ' + result + ' for ' + image.img.src );
+      });
+
       });
 
     }//end events
