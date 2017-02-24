@@ -17,13 +17,13 @@
         <?php if( $file_url ): ?>
         <a href="<?php echo $file_url; ?>">
         <?php endif; ?>
-            <picture class="is-loading">
+            <picture class="is-loading loaded">
                 <source srcset="<?php echo $image['sizes']['gallery-lg-ls']; ?>" media="(max-width: 480px)">
                 <source srcset="<?php echo $image['sizes']['gallery-ipad-pt']; ?>" media="(max-width: 768px)">
                 <source srcset="<?php echo $image['sizes']['gallery-wide-l']; ?>" media="(max-width: 991px)">
                 <source srcset="<?php echo $image['sizes']['gallery-wide-xl']; ?>" media="(max-width: 1662px)">
                 <source srcset="<?php echo $image['sizes']['gallery-wide-xxl']; ?>" media="(min-width: 1663px)">
-                <img alt="alt: <?php echo $image['caption'];  ?>" class="preload">
+                <img alt="alt: <?php echo $image['caption'];  ?>" class="preload loaded">
                 <!-- loaded by IE 8+, non-IE browsers that don’t support picture, and browsers that support picture but cannot find an appropriate source -->
                 <!--[if gte IE 8]>
                 <object data="<?php echo $image['sizes']['large']; ?>" type="image/jpeg"></object>
