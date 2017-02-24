@@ -365,66 +365,187 @@
 
 
 
-          function waitForComputedSrcset (images, timeout, $dfd) {
-              $dfd = $dfd || $.Deferred();
-              console.log('waitForComputedSrcset');
-              var computed = 0,
-                  length = images.length;
+          // function waitForComputedSrcset (images, timeout, $dfd) {
+          //     $dfd = $dfd || $.Deferred();
+          //     console.log('waitForComputedSrcset');
+          //     var computed = 0,
+          //         length = images.length;
 
-              for (var i = 0; i < length; i++) {
-                  if (images[i].hasOwnProperty('currentSrc') && !! !images[i].currentSrc) {
-                      window.setTimeout(this.waitForComputedSrcset.bind(this, images, timeout, $dfd), timeout);
-                      return $dfd;
-                  }
-                  computed++;
-              }
-              return (length === computed) ? $dfd.resolve(images) : $dfd;
-          }
+          //     for (var i = 0; i < length; i++) {
+          //         if (images[i].hasOwnProperty('currentSrc') && !! !images[i].currentSrc) {
+          //             window.setTimeout(this.waitForComputedSrcset.bind(this, images, timeout, $dfd), timeout);
+          //             return $dfd;
+          //         }
+          //         computed++;
+          //     }
+          //     return (length === computed) ? $dfd.resolve(images) : $dfd;
+          // }
 
-          var images = document.getElementsByTagName('img');
+          // var images = document.getElementsByTagName('img');
 
-          $.when(waitForComputedSrcset(images, 50))
-            .done(function(computedImages){
+          // $.when(waitForComputedSrcset(images, 50))
+          //   .done(function(computedImages){
             
-              var length = images.length; 
-                for (var i = 0; i < length; i++) {
-                 if (images[i].hasOwnProperty('currentSrc') && !! !images[i].currentSrc) {
-                  images[i].src = images[i].currentSrc;
-               }
-              }
-              console.info('imagesComputed', computedImages);
-                    $container.imagesLoaded()
-                      .always( function( instance ) {
-                        console.log('all images loaded ??');
-                      })
-                      .done( function( instance ) {
-                        var $item = $('.image-container img');
-                        //$item.removeClass('preload');
-                        $item.addClass('loaded');
-                        $('.main-image').css('min-height', 'auto');
-                        console.log('all images successfully loaded');
-                      })
-                      .fail( function() {
-                        console.log('all images loaded, at least one is broken');
-                      })
-                      .progress( function( instance, image ) {
-                        var $item = $( image.img ).parent();
-                        $item.removeClass('is-loading');
-                        $('.loader').addClass('none');
-                        if ( !image.isLoaded ) {
-                          $item.addClass('is-broken');
-                        }
-                        var result = image.isLoaded ? 'loaded' : 'broken';
-                        console.log( 'image is ' + result + ' for ', image.img);
-                        //console.log( 'image is ' + result + ' for ' + image.img.src );
-                      });
-              imagesLoaded(images, function(instance){
+          //     var length = images.length; 
+          //       for (var i = 0; i < length; i++) {
+          //        if (images[i].hasOwnProperty('currentSrc') && !! !images[i].currentSrc) {
+          //         images[i].src = images[i].currentSrc;
+          //      }
+          //     }
+          //     console.info('imagesComputed', computedImages);
+          //           $container.imagesLoaded()
+          //             .always( function( instance ) {
+          //               console.log('all images loaded ??');
+          //             })
+          //             .done( function( instance ) {
+          //               var $item = $('.image-container img');
+          //               //$item.removeClass('preload');
+          //               $item.addClass('loaded');
+          //               $('.main-image').css('min-height', 'auto');
+          //               console.log('all images successfully loaded');
+          //             })
+          //             .fail( function() {
+          //               console.log('all images loaded, at least one is broken');
+          //             })
+          //             .progress( function( instance, image ) {
+          //               var $item = $( image.img ).parent();
+          //               $item.removeClass('is-loading');
+          //               $('.loader').addClass('none');
+          //               if ( !image.isLoaded ) {
+          //                 $item.addClass('is-broken');
+          //               }
+          //               var result = image.isLoaded ? 'loaded' : 'broken';
+          //               console.log( 'image is ' + result + ' for ', image.img);
+          //               //console.log( 'image is ' + result + ' for ' + image.img.src );
+          //             });
+          //     imagesLoaded(images, function(instance){
             
-                console.info('imagesLoaded', instance);
-              });
-          });
+          //       console.info('imagesLoaded', instance);
+          //     });
+          // });
 
-   
+  $.fn.imagesLoaded = (function(){
+    var imageLoaded = function (img, cb, delay){
+        var timer;
+        var isReponsive = false;
+        var $parent = $(img).parent();
+        var $img = $('<img />');
+        var srcset = $(img).attr('srcset');
+        var src = $(img).attr('src');
+        var onload = function(){
+            $img.off('load error', onload);
+            clearTimeout(timer);
+            cb();
+        };
+
+        if(delay){
+            timer = setTimeout(onload, delay);
+        }
+
+        $img.on('load error', onload);
+
+        if($parent.is('picture')){
+            $parent = $parent.clone();
+            $parent.find('img').remove().end();
+            $parent.append($img);
+            isReponsive = true;
+        }
+
+        if(srcset){
+            $img.attr('srcset', srcset);
+            isReponsive = true;
+        } else if(src){
+            $img.attr('src', src);
+        }
+
+        if(isReponsive && !window.HTMLPictureElement){
+            if(window.respimage){
+                window.respimage({elements: [$img[0]]});
+            } else if(window.picturefill){
+                window.picturefill({elements: [$img[0]]});
+            }
+        }
+    };
+
+    return function(cb){
+        var i = 0;
+        var $imgs = $('img', this).add(this.filter('img'));
+        var ready = function(){
+            i++;
+            if(i >= $imgs.length){
+                cb();
+            }
+        };
+        $imgs.each(function(){
+            imageLoaded(this, ready);
+        }); 
+        return this;
+    };
+  })();
+
+  $container.imagesLoaded(function(){
+    console.log('test');
+    var $item = $('.image-container img');
+    $item.addClass('loaded');
+  });
+
+  //$container.imagesLoaded().done( function( instance ) {
+    //console.log('test');
+        // .always( function( instance ) {
+        //   console.log('all images loaded');
+        // })
+        // .done( function( instance ) {
+        //   var $item = $('.image-container img');
+        //   //$item.removeClass('preload');
+        //   $item.addClass('loaded');
+        //   $('.main-image').css('min-height', 'auto');
+        //   console.log('all images successfully loaded');
+        // })
+        // .fail( function() {
+        //   console.log('all images loaded, at least one is broken');
+        // })
+        // .progress( function( instance, image ) {
+        //   var $item = $( image.img ).parent();
+        //   $item.removeClass('is-loading');
+        //   $('.loader').addClass('none');
+        //   if ( !image.isLoaded ) {
+        //     $item.addClass('is-broken');
+        //     setTimeout(function(){ $item.addClass('loaded'); }, 4000);
+        //     setTimeout(function(){ $('.image-container img').addClass('loaded'); }, 4000);
+        //   }
+        //   var result = image.isLoaded ? 'loaded' : 'broken';
+          //console.log( 'image is ' + result + ' for ', image.img);
+          //console.log( 'image is ' + result + ' for ' + image.img.src );
+        //});
+
+
+// (function(){
+//     var relayout = function(){
+//         $container.isotope('layout');
+//     };
+//     $container.infinitescroll({
+//         loading: {
+//             msgText:        'My Message',
+//             finishedMsg:    'My Message',
+//             img:            "path-to/loading-icon.gif",
+//             speed:          'fast'
+//         },
+//         nextSelector:     ".post-nav li.next a",
+//         navSelector:      ".post-nav",
+//         itemSelector:     ".grid .hentry"
+//     },
+//     // Isotope callback
+//     function(newElements) {
+//         var $newElems = $(newElements).hide();
+//         $('.entry-video', $newElems).fitVids();
+//         window.respimage();
+//         $newElems.imagesLoaded(function(){
+//             $newElems.fadeIn();
+//             $container.isotope('appended', $newElems, true);
+//             $newElems.find('img').on('load', relayout);
+//         }, 3000);
+//     });
+// })();
 
     }//end events
   };

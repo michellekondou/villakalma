@@ -102,7 +102,7 @@ function assets() {
   }
   wp_enqueue_script('sage/modernizr', Assets\asset_path('scripts/modernizr-custom.js'), [], null, false);
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js?123'), ['jquery'], null, true);
 
 
 }
