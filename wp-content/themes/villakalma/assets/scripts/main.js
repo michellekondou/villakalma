@@ -321,6 +321,9 @@
 
       $container.imagesLoaded()
         .always( function( instance ) {
+          var $item = $('.image-container img');
+           $item.addClass('loaded');
+          $('.main-image').css('min-height', 'auto');
           console.log('all images loaded');
         })
         .done( function( instance ) {
@@ -330,7 +333,7 @@
           $('.main-image').css('min-height', 'auto');
           console.log('all images successfully loaded');
         })
-        .fail( function() {
+        .fail( function( instance ) {
           var $item = $('.image-container img');
           //$item.removeClass('preload');
           $item.addClass('loaded');
