@@ -354,6 +354,10 @@
           console.log('all images successfully loaded');
         })
         .fail( function() {
+          var $item = $('.image-container img');
+          //$item.removeClass('preload');
+          $item.addClass('loaded');
+          $('.main-image').css('min-height', 'auto');
           console.log('all images loaded, at least one is broken');
         })
         .progress( function( instance, image ) {
