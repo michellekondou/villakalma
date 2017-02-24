@@ -316,7 +316,14 @@
       });
 
       //flickity
-      $(window).load(function () {
+
+    }//end events
+  };
+
+  // Load Events
+  $(document).ready(UTIL.loadEvents);
+
+  $(window).load(function () {
         $('.js .gallery-wide').flickity({
            // options
           cellAlign: 'left',
@@ -363,10 +370,5 @@
 
       });
 
-    }//end events
-  };
-
-  // Load Events
-  $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
