@@ -334,7 +334,7 @@
           resize: true,
           touchVerticalScroll: true,
           setGallerySize: true,
-          lazyLoad: true,
+          //lazyLoad: true,
           autoPlay: 5000
         });
 
