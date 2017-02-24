@@ -365,7 +365,7 @@
           $item.removeClass('is-loading');
           $('.loader').addClass('none');
           if ( !image.isLoaded ) {
-            $item.addClass('is-broken');
+            $item.addClass('loaded is-broken');
           }
           var result = image.isLoaded ? 'loaded' : 'broken';
           console.log( 'image is ' + result + ' for ' + image.img.src );
