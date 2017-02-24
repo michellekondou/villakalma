@@ -4,5 +4,5 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=greek" rel="stylesheet">
   <?php wp_head(); ?>
- <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+ <script src="/wp-content/themes/villakalma/bower_components/packery/dist/packery.pkgd.min.js"></script>
 </head>
