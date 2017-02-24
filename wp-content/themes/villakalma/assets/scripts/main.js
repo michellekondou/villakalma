@@ -316,14 +316,27 @@
       });
 
       //flickity
-            //imagesloaded
+      $(window).load(function () {
+        $('.js .gallery-wide').flickity({
+           // options
+          cellAlign: 'left',
+          selectedAttraction: 0.23,
+          friction: 1,
+          wrapAround: true,
+          imagesLoaded: true,
+          resize: true,
+          touchVerticalScroll: true,
+          setGallerySize: true,
+          lazyLoad: true,
+          autoPlay: 5000
+        });
+
+      });
+      //imagesloaded
       var $container = $('.image-container');
 
       $container.imagesLoaded()
         .always( function( instance ) {
-          var $item = $('.image-container img');
-           $item.addClass('loaded');
-          $('.main-image').css('min-height', 'auto');
           console.log('all images loaded');
         })
         .done( function( instance ) {
@@ -333,48 +346,28 @@
           $('.main-image').css('min-height', 'auto');
           console.log('all images successfully loaded');
         })
-        .fail( function( instance ) {
-          var $item = $('.image-container img');
-          //$item.removeClass('preload');
-          $item.addClass('loaded');
-          $('.main-image').css('min-height', 'auto');
+        .fail( function() {
           console.log('all images loaded, at least one is broken');
         })
         .progress( function( instance, image ) {
           var $item = $( image.img ).parent();
           $item.removeClass('is-loading');
           $('.loader').addClass('none');
-
+          if ( !image.isLoaded ) {
+            $item.addClass('is-broken loaded');
+            $('.image-container img').addClass('loaded');
+          }
           var result = image.isLoaded ? 'loaded' : 'broken';
-          console.log( 'image is ' + result + ' for ', image.img  );
+          console.log( 'image is ' + result + ' for ', image.img);
           //console.log( 'image is ' + result + ' for ' + image.img.src );
-      });
+        });
+
+   
 
     }//end events
   };
 
   // Load Events
   $(document).ready(UTIL.loadEvents);
-
-  $(window).load(function () {
-        $('.js .gallery-wide').flickity({
-           // options
-          cellAlign: 'left',
-          selectedAttraction: 0.23,
-          friction: 1,
-          wrapAround: true,
-          //imagesLoaded: true,
-          resize: true,
-          touchVerticalScroll: true,
-          setGallerySize: true,
-          //lazyLoad: true,
-          autoPlay: 5000
-        });
-
-
-
-
-      });
-
 
 })(jQuery); // Fully reference jQuery after this point.
